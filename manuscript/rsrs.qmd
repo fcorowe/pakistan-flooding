@@ -1,0 +1,47 @@
+---
+title: "Using Digital Trace Data to Monitor Human Mobility For Supporting Rapid Humanitarian Responses"
+author: "Francisco Rowe"
+format:
+  pdf:
+    template: template.tex
+editor: visual
+bibliography: refs.bib
+editor_options:
+  markdown:
+    wrap: sentence
+---
+
+# Background
+
+Torrential monsoon rains have triggered the most severe flooding in Pakistan’s recent history. There are echoes of the devastating floods of 2010 - the deadliest in Pakistan's history - which left more than 2,000 people dead.
+
+The scale of the humanitarian crisis in Pakistan is unprecedented, with a third of the country under water, UN humanitarians warned on Friday.
+With more than 33 million people impacted, that represents 15 per cent of the total Pakistani population, said Dr. Palitha Mahipala, World Health Organization (WHO) Representative in the country
+
+In the past few weeks, record monsoon rains dumped more than five times the 30-year average for rainfall in some provinces, killing more than 1,200 people and injuring over 6,000 since June. The southern province of Sindh received 466% more rain than average.
+
+The anticipation list of waterborne diseases - diarrhea, cholera, all the diseases you can imagine - will hit, and quite soon, so we need to be in place to respond to those as well. Pakistan dengue cases soaring after record floods
+
+Affected people have told our staff on the ground about their traumatic and scarring experiences as rain and floodwaters swept away their possessions in minutes, Homes, roads, railways, crops, livestock and livelihoods have been washed away in the extreme weather event.
+
+Those who could, rushed to safety on higher ground without being able to rescue their belongings. Shelter, clean drinking water and food are among the most urgently needed items in the aftermath of the flood.
+
+Torrential monsoon rainfall has caused the Indus River to overflow, submerging land for tens of kilometers wide, according to recent images from the European Space Agency.
+
+We have a major problem within the region and a particular global challenge in ensuring that the support that is going to be necessary to get agricultural production back up and running in Pakistan, to feed its own people, as well as being the continued source of supply of food for colleagues and brethren next door in Afghanistan. Food prices are already under pressure because of the post-pandemic supply chain disruption and the war in Ukraine, which is a major global supplier of key crops. Raging flood waters have also swept away 700,000 head of livestock and damaged more than 3.6 million acres of crops - wiping out cotton, wheat, vegetable and fruit harvests.
+
+Pakistan, which is already facing political and economic turmoil, has been thrown into the front line of the human-induced climate crisis.
+
+South Asia is one of the world's global climate crisis hotspots
+
+People living in these hotspots are 15 times more likely to die from climate impacts," UN Secretary General António Guterres said earlier this week.
+
+Pakistan is home to more glaciers than anywhere outside the polar areas. Global warming makes the country more vulnerable to sudden outbursts of melting glacier water, according to the Meteorological Department in Islamabad. The floods were caused by record rainfall during the monsoon season and melting glaciers in the mountains. Pakistan also has the largest number of glaciers outside of the polar regions and higher temperatures have led to more water tumbling down from melting ice in the Himalayas. But there are other factors at play here that have contributed to the scale of devastation. These include long-term deforestation and government failures to make adaptive changes since the last major flooding event in 2010.
+
+ to support the humanitarian response and secure a speedy recovery from this disaster."
+
+<!--# ![Title.](../output/animated_map2.gif){#fig-fig1 height="60%"} -->
+
+![Title.](../output/flow-map5.png){#fig-fig2 height="50%"}
+
+# References

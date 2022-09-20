@@ -1,0 +1,105 @@
+---
+title: "Mapping flooding data"
+subtitle: "Selecting an area of a raster"
+author: "Francisco Rowe"
+format: html
+editor: visual
+---
+
+```{r}
+library(easypackages)
+easypackages::packages("sf",
+                       "raster",
+                       "stars",
+                       "r5r",
+                       "geobr",
+                       "aopdata",
+                       "gtfs2gps",
+                       "ggplot2",
+                       "osmdata",
+                       "h3jsr",
+                       "viridisLite",
+                       "ggnewscale",
+                       "dplyr",
+                       "magrittr",
+                       prompt = FALSE
+                       )
+```
+
+```{r}
+# clean workspace
+rm(list=ls())
+```
+
+# Read raster
+
+```{r}
+raster_sdf <- terra::rast("/Users/franciscorowe/Dropbox/Francisco/Research/in_progress/ukraine_refugees/data/GHS_POP_E2020_GLOBE_R2022A_54009_1000_V1_0/GHS_POP_E2020_GLOBE_R2022A_54009_1000_V1_0.tif")
+```
+
+# Read vector
+
+```{r}
+vector_sdf <-  st_read("../data/shp/gadm36_PAK.gpkg") %>% 
+  st_simplify(preserveTopology =T,
+              dTolerance = 1000) #simplify boundaries 1km
+
+```
+
+```{r}
+vector_sdf = st_transform(vector_sdf, crs(raster_sdf))
+```
+
+```{r}
+vector_sdf_vect = terra::vect(vector_sdf)
+raster_sdf_cropped = crop(raster_sdf, vector_sdf_vect)
+```
+
+```{r}
+raster_sdf_masked = mask(raster_sdf, vector_sdf_vect)
+```
+
+```{r}
+raster_sdf_cropped = crop(raster_sdf, vector_sdf_vect)
+raster_sdf_final = mask(raster_sdf_cropped, vector_sdf_vect)
+```
+
+```{r}
+plot(raster_sdf_final)
+```
+
+```{r}
+population_df <- as.data.frame(raster_sdf_final, xy=TRUE)
+names(population_df) <- c("X","Y","Population")
+```
+
+```{r}
+#Remove rows with 0 population to reduce size
+population_df <- population_df %>% filter(Population!=0)
+```
+
+```{r}
+hist(population_df$Population, breaks = 150)
+```
+
+```{r}
+max_cval <- quantile(population_df$Population, 0.995)
+max_cval
+```
+```{r}
+population_df$Population <-ifelse(population_df$Population > max_cval, max_cval, population_df$Population)
+```
+
+```{r}
+ggplot() +  
+  geom_raster(data = population_df, aes(x = X, y = Y, fill = Population), alpha=0.8) +
+  scale_fill_viridis(direction = -1)
+```
+
+```{r}
+saveRDS(population_df, "../data/density-layer/global-settlement-layer_2020_adjusted.rds")
+```
+
+
+
+

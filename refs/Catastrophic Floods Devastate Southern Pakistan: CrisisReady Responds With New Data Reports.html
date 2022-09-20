@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"73112b0ee5",applicationID:"132281307"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(){}function i(t,e,n,r){return function(){return s.recordSupportability("API/"+e+"/called"),o(t+e,[u.now()].concat(c(arguments)),n?null:this,r),n?void 0:this}}var o=t("handle"),a=t(9),c=t(10),f=t("ee").get("tracer"),u=t("loader"),s=t(4),d=NREUM;"undefined"==typeof window.newrelic&&(newrelic=d);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",v=l+"ixn-";a(p,function(t,e){d[e]=i(l,e,!0,"api")}),d.addPageAction=i(l,"addPageAction",!0),d.setCurrentRouteName=i(l,"routeName",!0),e.exports=newrelic,d.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(v+"tracer",[u.now(),t,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw f.emit("fn-err",[arguments,this,t],n),t}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){m[e]=i(v,e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),s.recordSupportability("API/noticeError/called"),o("err",[t,u.now(),!1,e])}},{}],2:[function(t,e,n){function r(t){if(NREUM.init){for(var e=NREUM.init,n=t.split("."),r=0;r<n.length-1;r++)if(e=e[n[r]],"object"!=typeof e)return;return e=e[n[n.length-1]]}}e.exports={getConfiguration:r}},{}],3:[function(t,e,n){var r=!1;try{var i=Object.defineProperty({},"passive",{get:function(){r=!0}});window.addEventListener("testPassive",null,i),window.removeEventListener("testPassive",null,i)}catch(o){}e.exports=function(t){return r?{passive:!0,capture:!!t}:!!t}},{}],4:[function(t,e,n){function r(t,e){var n=[a,t,{name:t},e];return o("storeMetric",n,null,"api"),n}function i(t,e){var n=[c,t,{name:t},e];return o("storeEventMetrics",n,null,"api"),n}var o=t("handle"),a="sm",c="cm";e.exports={constants:{SUPPORTABILITY_METRIC:a,CUSTOM_METRIC:c},recordSupportability:r,recordCustom:i}},{}],5:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(11);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],6:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?l("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&l("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();if(n.length>0){var r=n[n.length-1];if(u&&u<r.startTime)return;var i=[r],o=a({});o&&i.push(o),l("lcp",i)}}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||l("cls",[t])})}function a(t){var e=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(e)return e.type&&(t["net-type"]=e.type),e.effectiveType&&(t["net-etype"]=e.effectiveType),e.rtt&&(t["net-rtt"]=e.rtt),e.downlink&&(t["net-dlink"]=e.downlink),t}function c(t){if(t instanceof y&&!w){var e=Math.round(t.timeStamp),n={type:t.type};a(n),e<=v.now()?n.fid=v.now()-e:e>v.offset&&e<=Date.now()?(e-=v.offset,n.fid=v.now()-e):e=v.now(),w=!0,l("timing",["fi",e,n])}}function f(t){"hidden"===t&&(u=v.now(),l("pageHide",[u]))}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var u,s,d,p,l=t("handle"),v=t("loader"),m=t(8),g=t(3),y=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(h){}d=new PerformanceObserver(i);try{d.observe({entryTypes:["largest-contentful-paint"]})}catch(h){}p=new PerformanceObserver(o);try{p.observe({type:"layout-shift",buffered:!0})}catch(h){}}if("addEventListener"in document){var w=!1,b=["click","keydown","mousedown","pointerdown","touchstart"];b.forEach(function(t){document.addEventListener(t,c,g(!1))})}m(f)}},{}],7:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}e.exports={agent:i,version:o,match:r}},{}],8:[function(t,e,n){function r(t){function e(){t(c&&document[c]?document[c]:document[o]?"hidden":"visible")}"addEventListener"in document&&a&&document.addEventListener(a,e,i(!1))}var i=t(3);e.exports=r;var o,a,c;"undefined"!=typeof document.hidden?(o="hidden",a="visibilitychange",c="visibilityState"):"undefined"!=typeof document.msHidden?(o="msHidden",a="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(o="webkitHidden",a="webkitvisibilitychange",c="webkitVisibilityState")},{}],9:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],10:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],11:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?u(t,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),f=m(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[w[n]];return p&&p.push([b,n,r,c]),c}}function o(t,e){h[t]=m(t).concat(e)}function v(t,e){var n=h[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return h[t]||[]}function g(t){return p[t]=p[t]||i(n)}function y(t,e){l.aborted||s(t,function(t,n){e=e||"feature",w[n]=e,e in d||(d[e]=[])})}var h={},w={},b={on:o,addEventListener:o,removeEventListener:v,emit:n,get:g,listeners:m,context:e,buffer:y,abort:c,aborted:!1};return b}function o(t){return u(t,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=t("gos"),s=t(9),d={},p={},l=e.exports=i();e.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!M++){var t=T.info=NREUM.info,e=m.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+T.offset],null,"api"),c("timing",["load",n]);var r=m.createElement("script");0===t.agent.indexOf("http://")||0===t.agent.indexOf("https://")?r.src=t.agent:r.src=l+"://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===m.readyState&&o()}function o(){c("mark",["domContent",a()+T.offset],null,"api")}var a=t(5),c=t("handle"),f=t(9),u=t("ee"),s=t(7),d=t(2),p=t(3),l=d.getConfiguration("ssl")===!1?"http":"https",v=window,m=v.document,g="addEventListener",y="attachEvent",h=v.XMLHttpRequest,w=h&&h.prototype,b=!1;NREUM.o={ST:setTimeout,SI:v.setImmediate,CT:clearTimeout,XHR:h,REQ:v.Request,EV:v.Event,PR:v.Promise,MO:v.MutationObserver};var E=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1216.min.js"},O=h&&w&&w[g]&&!/CriOS/.test(navigator.userAgent),T=e.exports={offset:a.getLastTimestamp(),now:a,origin:E,features:{},xhrWrappable:O,userAgent:s,disabled:b};if(!b){t(1),t(6),m[g]?(m[g]("DOMContentLoaded",o,p(!1)),v[g]("load",r,p(!1))):(m[y]("onreadystatechange",i),v[y]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var M=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],t)}c(n+"start",[o,a,f],s,u);try{return p=e.apply(a,o)}catch(v){throw c(n+"err",[o,a,v],s,u),v}finally{c(n+"end",[o,a,p],s,u)}}return a(e)?e:(n||(n=""),nrWrapper[p]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<e.length;u++)f=e[u],c=t[f],a(c)||(t[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!v||e){var c=v;v=!0;try{t.emit(n,r,o,e,a)}catch(f){i([f,n,r,o],t)}v=c}}return t||(t=s),n.inPlace=r,n.flag=p,n}function i(t,e){e||(e=s);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)l.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[p])}function c(t,e){var n=e(t);return n[p]=t,o(t,n,s),n}function f(t,e,n){var r=t[e];t[e]=c(r,n)}function u(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var s=t("ee"),d=t(10),p="nr@original",l=Object.prototype.hasOwnProperty,v=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=f,e.exports.argsToArray=u},{}]},{},["loader"]);</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>Catastrophic Floods Devastate Southern Pakistan: CrisisReady Responds With New Data Reports</title>
+<meta name='robots' content='max-image-preview:large' />
+		<script>
+			const trackingData = {"accounts":{"omniture":null,"google_analytics":null,"google_analytics_view":null},"dimensions":{"context":"post","taxonomy":"Health","meta":"Catastrophic Floods Devastate Southern Pakistan: CrisisReady Responds With New Data Reports","date":"September 7, 2022","authors":"Crisis Ready","post_id":68080},"dimension_map":["context","taxonomy","meta","date","authors","post_id"]};
+		</script>
+		<link rel='dns-prefetch' href='//www.directrelief.org' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='dns-prefetch' href='//c0.wp.com' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel='dns-prefetch' href='//i0.wp.com' />
+<link rel='dns-prefetch' href='//i1.wp.com' />
+<link rel='dns-prefetch' href='//i2.wp.com' />
+<link rel="alternate" type="application/rss+xml" title="Direct Relief &raquo; Feed" href="https://www.directrelief.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Direct Relief &raquo; Comments Feed" href="https://www.directrelief.org/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Direct Relief &raquo; Stories Feed" href="https://www.directrelief.org/web-stories/feed/"><meta name='description' content='Editor&#8217;s Note: An unabridged version of this article was first published by Crisis Ready here. CrisisReady is a collaboration between Direct Relief and Harvard University School of Public Health. Heavy rainfall in Southern Pakistan and melting glaciers in the country&#8217;s northern mountains have caused massive floods and flash floods that continue to devastate districts across [&hellip;]' /><!-- WP SEO -->
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.directrelief.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.1"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://c0.wp.com/c/6.0.1/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='wp-block-library-inline-css' type='text/css'>
+.has-text-align-justify{text-align:justify;}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 12px;--wp--preset--font-size--medium: 16px;--wp--preset--font-size--large: 21px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 18px;--wp--preset--font-size--huge: 36px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='dr-global-css-css'  href='https://www.directrelief.org/wp-content/themes/directrelief-2021/client/build/css/global.min.css?ver=9e9c7de9c49110cdedea' type='text/css' media='all' />
+<link crossorigin="anonymous" rel='stylesheet' id='dr-google-fonts-css'  href='https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700&#038;display=swap&#038;ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='dr-search-datepicker-css'  href='https://www.directrelief.org/wp-content/themes/directrelief-2021/client/src/css/jquery-ui.min.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://c0.wp.com/p/jetpack/9.8.1/css/jetpack.css' type='text/css' media='all' />
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/jquery/jquery.min.js' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/jquery/jquery-migrate.min.js' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://www.directrelief.org/wp-json/" /><link rel="alternate" type="application/json" href="https://www.directrelief.org/wp-json/wp/v2/posts/68080" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.directrelief.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.directrelief.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 6.0.1" />
+<meta name="generator" content="Seriously Simple Podcasting 2.13.0" />
+<link rel="canonical" href="https://www.directrelief.org/2022/09/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/" />
+<link rel='shortlink' href='https://www.directrelief.org/?p=68080' />
+<link rel="alternate" type="application/json+oembed" href="https://www.directrelief.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.directrelief.org%2F2022%2F09%2Fcatastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.directrelief.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.directrelief.org%2F2022%2F09%2Fcatastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports%2F&#038;format=xml" />
+
+<link rel="alternate" type="application/rss+xml" title="Podcast RSS feed" href="https://www.directrelief.org/feed/podcast" />
+
+<meta property="fb:pages" content="6030179345" /><style type='text/css'>img#wpstats{display:none}</style>
+					<script type="application/ld+json">
+			{"@context":"http:\/\/schema.org","publisher":{"@type":"Organization","name":"Direct Relief","sameAs":"https:\/\/www.directrelief.org","logo":{"@type":"ImageObject","url":"https:\/\/www.directrelief.org\/wp-content\/themes\/directrelief-2021\/client\/img\/logo.png","height":60,"width":311}},"inLanguage":"en","@type":"NewsArticle","@id":"https:\/\/www.directrelief.org\/2022\/09\/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports\/","description":"Editor&#8217;s Note: An unabridged version of this article was first published by Crisis Ready here. CrisisReady is a collaboration between Direct Relief and Harvard University School of Public Health. Heavy rainfall in Southern Pakistan and melting glaciers in the country&#8217;s northern mountains have caused massive floods and flash floods that continue to devastate districts across [&hellip;]","headline":"Catastrophic Floods Devastate Southern Pakistan: CrisisReady Responds With New Data Reports","mainEntityOfPage":"https:\/\/www.directrelief.org\/2022\/09\/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports\/","url":"https:\/\/www.directrelief.org\/2022\/09\/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports\/","thumbnailUrl":"https:\/\/i2.wp.com\/www.directrelief.org\/wp-content\/uploads\/2022\/09\/PK-floods-population-movement-090522_web.png?fit=1800%2C1013&ssl=1","image":{"@type":"ImageObject","url":"https:\/\/i2.wp.com\/www.directrelief.org\/wp-content\/uploads\/2022\/09\/PK-floods-population-movement-090522_web.png?fit=1800%2C1013&ssl=1","width":1800,"height":1013,"caption":"Population movement resulting from Pakistan's flooding is visualized in this map from Crisis Ready."},"dateCreated":"2022-09-07T21:46:53Z","datePublished":"2022-09-07T21:46:53Z","dateModified":"2022-09-07T21:47:03Z","creator":[{"type":"Person","@id":"https:\/\/www.directrelief.org\/author\/crisisready\/","name":"Crisis Ready","url":"https:\/\/www.directrelief.org\/author\/crisisready\/"}],"author":[{"type":"Person","@id":"https:\/\/www.directrelief.org\/author\/crisisready\/","name":"Crisis Ready","url":"https:\/\/www.directrelief.org\/author\/crisisready\/"}],"keywords":["post","Health Mapping","CrisisReady","Asia","Pakistan","Extreme Weather","Flooding"]}			</script>
+			
+				<script>
+			window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push({
+				'trackingData' : window.trackingData
+			});
+		</script>
+					<style type="text/css">
+				/* If html does not have either class, do not show lazy loaded images. */
+				html:not( .jetpack-lazy-images-js-enabled ):not( .js ) .jetpack-lazy-image {
+					display: none;
+				}
+			</style>
+			<script>
+				document.documentElement.classList.add(
+					'jetpack-lazy-images-js-enabled'
+				);
+			</script>
+		<link rel="amphtml" href="https://www.directrelief.org/2022/09/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/amp/">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Catastrophic Floods Devastate Southern Pakistan: CrisisReady Responds With New Data Reports" />
+<meta property="og:url" content="https://www.directrelief.org/2022/09/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/" />
+<meta property="og:description" content="Editor&#8217;s Note: An unabridged version of this article was first published by Crisis Ready here. CrisisReady is a collaboration between Direct Relief and Harvard University School of Public Hea…" />
+<meta property="article:published_time" content="2022-09-07T21:46:53+00:00" />
+<meta property="article:modified_time" content="2022-09-07T21:47:03+00:00" />
+<meta property="og:site_name" content="Direct Relief" />
+<meta property="og:image" content="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522_web.png?fit=1200%2C675&#038;ssl=1" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:text:title" content="Catastrophic Floods Devastate Southern Pakistan: CrisisReady Responds With New Data Reports" />
+<meta name="twitter:image" content="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522_web.png?fit=1200%2C675&#038;ssl=1&#038;w=640" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- End Jetpack Open Graph Tags -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-W9D7FJC');</script>
+		<link rel="icon" href="https://i2.wp.com/www.directrelief.org/wp-content/uploads/cropped-DR_Logo_caduceus_580x580.png?fit=32%2C32&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i2.wp.com/www.directrelief.org/wp-content/uploads/cropped-DR_Logo_caduceus_580x580.png?fit=192%2C192&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i2.wp.com/www.directrelief.org/wp-content/uploads/cropped-DR_Logo_caduceus_580x580.png?fit=180%2C180&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i2.wp.com/www.directrelief.org/wp-content/uploads/cropped-DR_Logo_caduceus_580x580.png?fit=270%2C270&#038;ssl=1" />
+
+</head>
+
+<body class="post-template-default single single-post postid-68080 single-format-standard hfeed no-sidebar">
+<!-- Critical style to prevent flash -->
+<style>
+	.republish-modal {
+		display: none;
+	}
+</style>
+<!--Republish Modal-->
+<div id="republish-modal" data-component="republish" class="republish-modal" tabindex="-1">
+	<div class="republish-modal__dialog">
+		<span class="republish-modal__close close">&times;</span>
+		<div class="republish-modal__content entry-content row">
+			<div class="copy column">
+				<h3 class="copy__title">
+					News publications and other organizations are encouraged to reuse Direct Relief-published content for free under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode" target="_blank">Creative Commons License (Attribution-Non-Commercial-No Derivatives 4.0 International)</a>, given the republisher complies with the requirements identified below.				</h3>
+				<div class="copy__body">
+					<p>When republishing:</p>
+					<ul>
+						<li>Include a byline with the reporter’s name and Direct Relief in the following format: &quot;Author Name, Direct Relief.&quot; If attribution in that format is not possible, include the following language at the top of the story: &quot;This story was originally published by Direct Relief.&quot;</li>
+						<li>If publishing online, please link to the original URL of the story.</li>
+						<li>Maintain any tagline at the bottom of the story.</li>
+						<li>
+							With Direct Relief&#039;s permission, news publications can make changes such as localizing the content for a particular area, using a different headline, or shortening story text. To confirm edits are acceptable, please check with Direct Relief by <a href="https://www.directrelief.org/direct-relief-content-and-republishing-policy/#form" target="_blank">clicking this link</a>.						</li>
+						<li>If new content is added to the original story — for example, a comment from a local official — a note with language to the effect of the following must be included: &quot;Additional reporting by [reporter and organization].&quot;</li>
+						<li>
+							If republished stories are shared on social media, Direct Relief appreciates being tagged in the posts:							<ul>
+								<li>Twitter (@DirectRelief)</li>
+								<li>Facebook (@DirectRelief)</li>
+								<li>Instagram (@DirectRelief)</li>
+							</ul>
+						</li>
+					</ul>
+					<p>Republishing Images:</p>
+					<p>Unless stated otherwise, images shot by Direct Relief may be republished for non-commercial purposes with proper attribution, given the republisher complies with the requirements identified below.</p>
+					<ul>
+						<li>Maintain correct caption information.</li>
+						<li>Credit the photographer and Direct Relief in the caption. For example: &quot;First and Last Name / Direct Relief.&quot;</li>
+						<li>Do not digitally alter images.</li>
+					</ul>
+					<p>
+						Direct Relief often contracts with freelance photographers who usually, but not always, allow their work to be published by Direct Relief’s media partners. Contact Direct Relief for permission to use images in which Direct Relief is not credited in the caption by <a href="https://www.directrelief.org/direct-relief-content-and-republishing-policy/#form" target="_blank">clicking here</a>.					</p>
+
+					<p>Other Requirements:</p>
+					<ul>
+						<li>Do not state or imply that donations to any third-party organization support Direct Relief&#039;s work.</li>
+						<li>Republishers may not sell Direct Relief&#039;s content.</li>
+						<li>Direct Relief&#039;s work is prohibited from populating web pages designed to improve rankings on search engines or solely to gain revenue from network-based advertisements.</li>
+						<li>
+							Advance permission is required to translate Direct Relief&#039;s stories into a language different from the original language of publication. To inquire, <a href="https://www.directrelief.org/direct-relief-content-and-republishing-policy/#form" target="_blank">contact us here</a>.						</li>
+						<li>If Direct Relief requests a change to or removal of republished Direct Relief content from a site or on-air, the republisher must comply.</li>
+					</ul>
+
+
+					<p>
+						For any additional questions about republishing Direct Relief content, please <a href="https://www.directrelief.org/direct-relief-content-and-republishing-policy/#form" target="_blank">email the team here</a>.					</p>
+				</div>
+			</div>
+			<div class="republish-content column">
+								<textarea readonly id="republish-text-area" class="republish-text-area form-control" aria-hidden="true" tabindex="-1" rows="10"><h1>Catastrophic Floods Devastate Southern Pakistan: CrisisReady Responds With New Data Reports</h1> <p>By Crisis Ready</p> <p><em>Editor’s Note: An unabridged version of this article was first published by Crisis Ready<a href="https://www.crisisready.io/2022/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/"> here</a>. CrisisReady is a collaboration between Direct Relief and Harvard University School of Public Health.</em></p> <p>Heavy rainfall in Southern Pakistan and melting glaciers in the country’s northern mountains have caused massive floods and flash floods that continue to devastate districts across the region. The floods have killed at least 1,191 people, 399 of whom were children, since the flooding began in mid-June at the beginning of the monsoon season. In addition to this, a reported 3,554 individuals have been injured. The National Disaster Management Authority stated that as of August 29, 2022, more than 33 million people have been impacted and more than 1 million houses have been destroyed.</p> <p>The floods have spawned a critical humanitarian crisis as damage and displacement increase across the country. So far, 66 districts have been officially declared “calamity hit.” An estimated 50,000 people have been evacuated since rescue efforts began. Pakistan’s meteorological office has predicted that more flash floods are expected throughout September.</p> <p>CrisisReady has published an interactive map that shows population movement patterns driven by the floods between August 13, 2022, and September 5, 2022. Data reflecting population movement originated from selected level 2 administrative units of Pakistan, including Karachi, Larkana, Malakand, Quetta, and Sukkur.</p> <p>The red arrows (shown below) on the map show the directional patterns of population movement. The size (width) of the arrows correlates with the volume of individuals displaced from the selected origins. The larger the arrow, the greater number of movement vectors. Transparency of arrows indicates the baseline population traveling between the origin and the destination under the pre-crisis situation.</p> <p><em><a href="https://www.arcgis.com/home/webmap/viewer.html?webmap=2efddbabec664458ad8b6a86bbf557ff&amp;extent=62.7843,24.0677,74.9132,30.1558">Explore the dashboard here.</a></em></p> <p>The maps were generated using data provided by Data for Good at Meta. For more information about the disaster population maps provided by Data for Good at Meta. Data on flood extent is gathered using the Visible Infrared Imaging Radiometer Suite (VIIRS), an instrument that collects visible and infrared images and global observations of the land, atmosphere, cryosphere, and oceans.</p> <link rel="canonical" href="https://www.directrelief.org/2022/09/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/"><meta rel="syndication-source" href="https://www.directrelief.org/2022/09/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/"></textarea>
+				<button type="button" class="btn btn-secondary btn-sm copy-to-clip-btn" data-clipboard-target="#republish-text-area">Copy HTML</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon-svg-sprite">
+	<defs>
+		<symbol id="icon-right-arrow" viewBox="0 0 32 30">
+			<path fill="#FE5000" fill-rule="nonzero" d="M17.489 0l-4.836 5 6.254 6.467H0v7.069l18.907-.003-6.254 6.465L17.49 30l9.673-10L32 15.001l-4.838-5.001z"/>
+		</symbol>
+		<symbol id="icon-x" viewBox="0 0 32 32">
+			<path d="M30 24.398l-8.406-8.398 8.406-8.398-5.602-5.602-8.398 8.402-8.402-8.402-5.598 5.602 8.398 8.398-8.398 8.398 5.598 5.602 8.402-8.402 8.398 8.402z"></path>
+		</symbol>
+	</defs>
+</svg>
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">
+		Skip to content	</a>
+
+	
+<div id="sticky-header__wrapper" class="sticky-header__wrapper" data-component="stickyHeader">
+
+	<header id="masthead" class="header-site" role="banner" data-component="siteHeader">
+
+		<div class="header-site__items">
+
+			<div class="header-site__branding">
+				<div class="header-site__title">
+					<a href="https://www.directrelief.org/">
+						<svg aria-hidden="true" tabindex="-1" width="290px" height="55px" viewBox="0 0 290 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>Direct Relief Logo</title>
+	<defs>
+		<polygon points="0.04125 30.877 0.04125 0.4571875 23.8449063 0.4571875 47.6485625 0.4571875 47.6485625 30.877"></polygon>
+	</defs>
+	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		<g transform="translate(-16.000000, -41.000000)">
+			<g transform="translate(16.000000, 41.000000)">
+				<g>
+					<path d="M71.462875,37.5093125 C71.462875,41.1186875 74.0416875,41.540125 76.338625,41.540125 C86.4634375,41.540125 89.788875,33.9013125 89.788875,26.915625 C89.788875,18.151375 84.1644375,11.8243125 75.1183125,11.8243125 C73.1974375,11.8243125 72.3078125,11.9645625 71.462875,12.012 L71.462875,37.5093125 Z M66.870375,15.5271875 C66.870375,11.3100625 64.6655625,11.589875 62.557,11.543125 L62.557,10.324875 C64.3864375,10.4176875 66.2591875,10.4176875 68.0879375,10.4176875 C70.0569375,10.4176875 72.7271875,10.324875 76.1976875,10.324875 C88.33825,10.324875 94.945125,18.4325625 94.945125,26.7293125 C94.945125,31.3685625 92.2274375,43.0409375 75.6325625,43.0409375 C73.2441875,43.0409375 71.0414375,42.9474375 68.839375,42.9474375 C66.7294375,42.9474375 64.6655625,42.9955625 62.557,43.0409375 L62.557,41.822 C65.3709375,41.540125 66.7294375,41.4459375 66.870375,38.259375 L66.870375,15.5271875 L66.870375,15.5271875 Z" fill="#FE5000"></path>
+					<path d="M101.233688,18.3074375 C100.015438,18.3074375 98.938125,17.182 98.938125,15.9644375 C98.938125,14.79225 100.060813,13.71425 101.233688,13.71425 C102.453313,13.71425 103.531313,14.697375 103.531313,15.9644375 C103.531313,17.230125 102.498688,18.3074375 101.233688,18.3074375 Z M96.218375,41.822 L97.1100625,41.822 C98.4231875,41.822 99.358875,41.822 99.358875,40.275125 L99.358875,27.5721875 C99.358875,25.5096875 98.6569375,25.2285 96.9230625,24.2914375 L96.9230625,23.5420625 C99.12375,22.8855 101.749313,21.995875 101.936313,21.8549375 C102.264938,21.6665625 102.546813,21.6211875 102.78125,21.6211875 C103.015,21.6211875 103.109188,21.901 103.109188,22.2770625 L103.109188,40.275125 C103.109188,41.822 104.140438,41.822 105.453563,41.822 L106.249,41.822 L106.249,43.0409375 C104.654688,43.0409375 103.015,42.9474375 101.328563,42.9474375 C99.6414375,42.9474375 97.953625,42.9955625 96.218375,43.0409375 L96.218375,41.822 L96.218375,41.822 Z" fill="#FE5000"></path>
+					<path d="M107.884563,41.822 L109.149563,41.822 C110.462,41.822 111.39975,41.822 111.39975,40.275125 L111.39975,27.104 C111.39975,25.6513125 109.665875,25.3708125 108.959812,24.9940625 L108.959812,24.2914375 C112.38425,22.8394375 114.257688,21.6211875 114.681188,21.6211875 C114.960313,21.6211875 115.103313,21.7600625 115.103313,22.2303125 L115.103313,26.4474375 L115.195438,26.4474375 C116.366938,24.619375 118.335938,21.6211875 121.19525,21.6211875 C122.36675,21.6211875 123.866188,22.4173125 123.866188,24.1044375 C123.866188,25.3708125 122.975875,26.4941875 121.663438,26.4941875 C120.21075,26.4941875 120.21075,25.3708125 118.571063,25.3708125 C117.773563,25.3708125 115.149375,26.4474375 115.149375,29.2593125 L115.149375,40.275125 C115.149375,41.822 116.08575,41.822 117.398875,41.822 L120.02375,41.822 L120.02375,43.0409375 C117.445625,42.9955625 115.476625,42.9474375 113.461563,42.9474375 C111.540688,42.9474375 109.571,42.9955625 107.884563,43.0409375 L107.884563,41.822" fill="#FE5000"></path>
+					<path d="M136.338125,28.6034375 C137.509625,28.6034375 137.65125,27.9943125 137.65125,27.432625 C137.65125,25.0415 136.198563,23.11925 133.572313,23.11925 C130.713688,23.11925 128.744688,25.2285 128.183688,28.6034375 L136.338125,28.6034375 Z M128.044125,30.1035625 C127.94925,30.525 127.94925,31.229 128.044125,32.824 C128.32325,37.2741875 131.18325,40.9316875 134.9315,40.9316875 C137.509625,40.9316875 139.524688,39.524375 141.259938,37.7911875 L141.915813,38.44775 C139.7605,41.305 137.0875,43.7449375 133.244375,43.7449375 C125.7905,43.7449375 124.293125,36.5248125 124.293125,33.526625 C124.293125,24.3381875 130.47925,21.6211875 133.761375,21.6211875 C137.558438,21.6211875 141.634625,24.01025 141.680688,28.9795 C141.680688,29.2593125 141.680688,29.5411875 141.634625,29.8216875 L141.213188,30.1035625 L128.044125,30.1035625 L128.044125,30.1035625 Z" fill="#FE5000"></path>
+					<path d="M161.50475,38.8678125 C159.2085,41.540125 156.068688,43.7449375 152.365812,43.7449375 C147.492125,43.7449375 143.0385,39.010125 143.0385,34.040875 C143.0385,27.2435625 147.912875,21.6211875 154.663437,21.6211875 C157.053875,21.6211875 160.989812,22.3691875 160.989812,24.8545 C160.989812,25.9318125 160.33325,26.915625 159.2085,26.915625 C157.238812,26.915625 157.333687,23.11925 152.928188,23.11925 C148.89875,23.11925 146.788812,27.619625 146.788812,31.180875 C146.788812,36.0105625 149.882562,40.275125 154.991375,40.275125 C157.381812,40.275125 158.929375,39.430875 160.709313,38.0730625 L161.50475,38.8678125" fill="#FE5000"></path>
+					<path d="M168.7675,37.2741875 C168.7675,40.3693125 170.456687,41.2121875 171.723062,41.2121875 C172.988062,41.2121875 173.925125,40.79075 175.003125,39.8523125 L175.705062,40.555625 C174.065375,42.2434375 172.002875,43.7449375 169.472187,43.7449375 C166.471937,43.7449375 165.019937,42.1485625 165.019937,39.3834375 L165.019937,24.8545 L161.926187,24.8545 L161.926187,24.1044375 C164.362687,22.2303125 165.816063,21.338625 168.2065,17.5429375 L168.7675,17.5429375 L168.7675,22.3224375 L175.753187,22.3224375 L175.753187,24.8545 L168.7675,24.8545 L168.7675,37.2741875" fill="#FE5000"></path>
+					<path d="M191.786375,11.8243125 C190.614875,11.8243125 189.81875,11.9645625 188.973125,12.1055 L188.973125,25.839 C189.676438,25.9785625 190.660938,26.074125 191.456375,26.074125 C197.223813,26.074125 199.471938,22.2770625 199.471938,18.90075 C199.471938,14.823875 197.316625,11.8243125 191.786375,11.8243125 Z M188.973125,27.5721875 L188.973125,38.44775 C188.973125,41.7278125 190.755125,41.77525 193.239063,41.822 L193.239063,43.0409375 C190.990938,43.0409375 188.973125,42.9474375 186.912,42.9474375 C184.661125,42.9474375 182.459063,42.9955625 180.114688,43.0409375 L180.114688,41.822 C182.459063,41.9629375 184.380625,41.353125 184.380625,38.6815 L184.380625,14.9180625 C184.380625,11.6373125 182.6,11.589875 180.114688,11.543125 L180.114688,10.324875 C182.694188,10.3709375 184.942313,10.4176875 187.239938,10.4176875 C188.881,10.4176875 190.520688,10.324875 193.52025,10.324875 C202.380063,10.324875 204.347688,15.2920625 204.347688,18.62025 C204.347688,22.605 201.348125,25.5564375 197.692,26.635125 C201.95725,32.8700625 204.208813,36.620375 206.2225,38.8678125 C207.722625,40.555625 209.12925,41.822 211.518313,41.822 L211.518313,43.0409375 C210.3475,43.0409375 209.175313,42.9474375 208.003813,42.9474375 C206.692063,42.9474375 205.332188,42.9955625 204.019063,43.0409375 C199.753125,38.3535625 196.615375,32.8700625 193.239063,27.5721875 L188.973125,27.5721875 L188.973125,27.5721875 Z" fill="#FE5000"></path>
+					<path d="M221.878938,28.6034375 C223.0525,28.6034375 223.19275,27.9943125 223.19275,27.432625 C223.19275,25.0415 221.74075,23.11925 219.1145,23.11925 C216.2545,23.11925 214.287563,25.2285 213.723125,28.6034375 L221.878938,28.6034375 Z M213.58425,30.1035625 C213.490063,30.525 213.490063,31.229 213.58425,32.824 C213.866125,37.2741875 216.722688,40.9316875 220.473,40.9316875 C223.0525,40.9316875 225.06825,39.524375 226.802125,37.7911875 L227.458688,38.44775 C225.302688,41.305 222.628313,43.7449375 218.786563,43.7449375 C211.332688,43.7449375 209.834625,36.5248125 209.834625,33.526625 C209.834625,24.3381875 216.021438,21.6211875 219.302875,21.6211875 C223.098563,21.6211875 227.175438,24.01025 227.223563,28.9795 C227.223563,29.2593125 227.223563,29.5411875 227.175438,29.8216875 L226.753313,30.1035625 L213.58425,30.1035625 L213.58425,30.1035625 Z" fill="#FE5000"></path>
+					<path d="M228.476188,41.822 L229.3665,41.822 C230.678938,41.822 231.614625,41.822 231.614625,40.275125 L231.614625,14.168 C231.614625,11.1203125 230.913375,11.0275 229.134125,10.511875 L229.134125,9.7604375 C231.006188,9.1526875 232.975875,8.30775 233.959688,7.7474375 C234.475313,7.464875 234.85,7.2304375 234.990938,7.2304375 C235.27075,7.2304375 235.365625,7.511625 235.365625,7.885625 L235.365625,40.275125 C235.365625,41.822 236.396188,41.822 237.710688,41.822 L238.506125,41.822 L238.506125,43.0409375 C236.9125,43.0409375 235.27075,42.9474375 233.585,42.9474375 C231.898563,42.9474375 230.21075,42.9955625 228.476188,43.0409375 L228.476188,41.822" fill="#FE5000"></path>
+					<path d="M245.4375,18.3074375 C244.21925,18.3074375 243.141938,17.182 243.141938,15.9644375 C243.141938,14.79225 244.266688,13.71425 245.4375,13.71425 C246.657125,13.71425 247.734438,14.697375 247.734438,15.9644375 C247.734438,17.230125 246.7025,18.3074375 245.4375,18.3074375 Z M240.422188,41.822 L241.311813,41.822 C242.626313,41.822 243.562,41.822 243.562,40.275125 L243.562,27.5721875 C243.562,25.5096875 242.860063,25.2285 241.126188,24.2914375 L241.126188,23.5420625 C243.32825,22.8855 245.952438,21.995875 246.1415,21.8549375 C246.46875,21.6665625 246.751313,21.6211875 246.983688,21.6211875 C247.21675,21.6211875 247.311625,21.901 247.311625,22.2770625 L247.311625,40.275125 C247.311625,41.822 248.342188,41.822 249.656688,41.822 L250.452125,41.822 L250.452125,43.0409375 C248.859188,43.0409375 247.21675,42.9474375 245.531688,42.9474375 C243.843188,42.9474375 242.15675,42.9955625 240.422188,43.0409375 L240.422188,41.822 L240.422188,41.822 Z" fill="#FE5000"></path>
+					<path d="M263.207312,28.6034375 C264.377437,28.6034375 264.519062,27.9943125 264.519062,27.432625 C264.519062,25.0415 263.065688,23.11925 260.440125,23.11925 C257.583563,23.11925 255.613875,25.2285 255.0515,28.6034375 L263.207312,28.6034375 Z M254.909187,30.1035625 C254.815,30.525 254.815,31.229 254.909187,32.824 C255.189687,37.2741875 258.049688,40.9316875 261.800687,40.9316875 C264.377437,40.9316875 266.393875,39.524375 268.129125,37.7911875 L268.783625,38.44775 C266.628312,41.305 263.955312,43.7449375 260.112875,43.7449375 C252.658312,43.7449375 251.160937,36.5248125 251.160937,33.526625 C251.160937,24.3381875 257.347062,21.6211875 260.629187,21.6211875 C264.424875,21.6211875 268.503812,24.01025 268.550563,28.9795 C268.550563,29.2593125 268.550563,29.5411875 268.503812,29.8216875 L268.081,30.1035625 L254.909187,30.1035625 L254.909187,30.1035625 Z" fill="#FE5000"></path>
+					<path d="M283.593063,22.3224375 L283.593063,24.8545 L277.64,24.8545 L277.64,40.6965625 C277.64,41.822 278.8115,41.822 279.843438,41.822 L281.953375,41.822 L281.953375,43.0409375 C279.937625,42.9955625 277.968625,42.9474375 275.952875,42.9474375 C274.032,42.9474375 272.062313,42.9955625 270.140063,43.0409375 L270.140063,41.822 L271.92275,41.822 C273.656625,41.822 273.889688,41.025875 273.889688,40.3205 L273.889688,24.8545 L270.609625,24.8545 L270.609625,24.057 C271.686938,23.4025 273.889688,22.6985 273.889688,21.1041875 C273.889688,18.057875 274.733938,13.4633125 277.64,10.4644375 C280.218125,7.7928125 282.655313,7.2304375 283.312563,7.2304375 C284.108688,7.2304375 285.421813,7.4195 285.421813,9.1526875 C285.421813,10.184625 284.904813,10.9800625 283.779375,10.9800625 C282.374125,10.9800625 282.374125,10.324875 280.781188,10.324875 C277.922563,10.324875 277.64,13.6984375 277.64,15.6206875 L277.64,22.3224375 L283.593063,22.3224375" fill="#FE5000"></path>
+					<g>
+						<polyline fill="#FFA300" points="4.0239375 37.4715 3.812875 51.5515 15.494875 52.8598125 24.025375 53.73775 29.45525 53.0674375 30.699625 44.9425625 29.7715 37.9094375 29.525375 29.2909375 17.1909375 26.230875 5.00225 26.0253125 4.701125 31.161625 4.0239375 37.4715"></polyline>
+						<path d="M27.78325,25.1796875 L37.929375,23.82875 L45.8761875,23.1790625 L49.5254375,24.745875 L50.876375,37.7251875 L51.228375,44.8435625 L50.3875625,47.9689375 C50.3875625,47.9689375 44.378125,48.1408125 43.250625,48.28725 C42.1251875,48.4364375 35.1539375,48.87025 35.1539375,48.87025 L29.896625,49.5721875 C29.896625,49.5721875 27.905625,49.6464375 27.575625,47.2250625 C27.2573125,44.801625 25.636875,41.012125 25.1604375,37.0445625 C24.6681875,32.934 26.6550625,25.3323125 26.6550625,25.3323125" fill="#FFBE4C"></path>
+						<g>
+							<mask fill="white">
+								<use xlink:href="#path-1"></use>
+							</mask>
+							<g></g>
+							<path d="M21.140625,27.9241875 L29.95575,27.8636875 C29.95575,27.8636875 35.39525,27.9434375 36.64375,28.070625 C37.8846875,28.2033125 44.631125,27.9200625 44.631125,27.9200625 C44.631125,27.9200625 45.045,27.966125 45.3550625,25.0078125 C45.777875,20.9983125 45.9380625,20.340375 46.800875,15.8104375 C47.0284375,14.6238125 47.3034375,13.1580625 47.6485625,11.297 L47.3886875,5.786 L46.3051875,4.1779375 L37.7513125,1.77375 L30.28575,0.9851875 L25.311,0.4571875 L21.412875,13.501125 L22.088,21.4355625 L21.140625,27.9241875" fill="#FFA300" mask="url(#mask-2)"></path>
+							<path d="M0,6.326375 L2.9253125,5.3625 L12.133,5.3185 L20.365125,6.1895625 L25.2965625,6.714125 L25.977875,16.8568125 L26.99125,21.489875 L27.138375,28.25625 L14.0408125,29.8189375 L4.5533125,30.877 L0.45375,29.7006875 C0.45375,29.7006875 0.5314375,24.7493125 0.3004375,22.9356875 C0.0089375,20.6635 0,6.326375 0,6.326375" fill="#FE5000" mask="url(#mask-2)"></path>
+						</g>
+						<path d="M2.303125,15.2411875 C4.5794375,14.9634375 10.742875,14.6636875 15.362875,16.3955 C19.98425,18.132125 23.3660625,20.0220625 23.909875,20.9983125 C24.451625,21.9835 27.3645625,25.1865625 26.7691875,25.471875 C26.18,25.7558125 17.3999375,26.004 16.3879375,26.3395 C15.3841875,26.6770625 13.4701875,26.4900625 13.4701875,26.4900625 L8.4390625,23.1295625 L7.844375,21.7339375 L7.3871875,20.6985625 L2.303125,15.2411875" fill="#FFFFFE"></path>
+						<path d="M47.73175,10.0725625 C41.5298125,10.84325 34.684375,14.834875 33.5713125,16.0263125 C32.456875,17.210875 30.7285,20.0371875 30.160625,20.6435625 C29.0516875,21.83225 27.46975,24.3381875 29.1231875,24.1278125 C30.7800625,23.925 36.0745,22.636625 36.0745,22.636625 L42.4043125,19.5449375 C42.4043125,19.5449375 46.5623125,17.560125 43.9030625,16.421625 C42.9446875,16.0125625 48.965125,13.27425 48.965125,13.27425 L47.73175,10.0725625" fill="#FFFFFE"></path>
+						<path d="M25.0724375,16.619625 C25.0724375,16.619625 27.891875,16.5845625 28.314,17.4714375 C28.7340625,18.357625 28.890125,19.5930625 28.890125,19.5930625 L27.773625,20.6745 C27.773625,20.6745 24.376,21.093875 25.0724375,16.619625" fill="#FFFFFE"></path>
+						<polyline fill="#FFFFFE" points="20.7205625 21.894125 24.6785 25.641 26.1353125 28.76775 25.304125 32.720875 23.013375 44.5905625 22.1780625 55 25.927 45.0113125 26.96925 33.5561875 27.592125 29.805875 29.4724375 25.641 35.5073125 22.312125 27.592125 24.8105 21.9725 21.6865 20.7205625 21.894125"></polyline>
+						<path d="M31.2448125,24.43925 C31.2654375,24.5141875 27.0153125,25.1508125 21.462375,28.2019375 C20.25925,29.0874375 18.4353125,30.0636875 18.3143125,31.975625 C18.11425,34.0566875 20.9605,34.208625 22.6325,34.315875 C24.5774375,34.37775 26.60625,34.1735625 28.6061875,33.746625 C30.072625,33.6606875 33.8765625,31.8615 32.3998125,31.9364375 C28.8729375,30.639125 24.231625,33.0391875 22.3843125,35.93425 C19.9945625,39.4343125 26.213,40.21325 28.16825,38.9901875 C29.819625,37.6770625 25.009875,39.6598125 23.9930625,40.8120625 C22.19525,42.0660625 21.731875,43.080125 21.39775,43.5435 C21.1976875,43.5799375 22.0268125,40.687625 26.0761875,38.385875 C26.8021875,37.995375 28.7010625,36.6939375 29.453875,38.333625 C29.6800625,40.2538125 27.3741875,40.566625 26.059,40.7385 C24.5320625,40.781125 22.7294375,40.668375 21.3090625,39.34975 C19.7511875,37.7320625 20.8470625,35.299 22.07425,34.09725 C24.580875,31.444875 28.554625,29.3315 32.8370625,30.70925 L33.5995,31.12175 C33.8064375,31.5266875 33.6661875,30.5050625 34.15775,32.088375 L33.8834375,32.6830625 C33.427625,33.292875 32.9113125,33.5575625 32.4314375,33.801625 C31.461375,34.254 30.4830625,34.544125 29.502,34.7606875 C27.533,35.1924375 25.537875,35.402125 23.5186875,35.3794375 C21.605375,35.129875 19.215625,35.6159375 17.5291875,33.0240625 C17.0919375,29.975 19.5195,28.807625 20.986625,27.7605625 C24.4275625,25.944875 27.9131875,25.036 31.2448125,24.43925" fill="#FFFFFE"></path>
+					</g>
+					<path d="M49.6656875,6.4824375 L49.8788125,6.4824375 C50.1276875,6.4824375 50.3408125,6.3903125 50.3408125,6.1579375 C50.3408125,5.9943125 50.216375,5.8306875 49.8788125,5.8306875 C49.7805,5.8306875 49.7138125,5.8361875 49.6656875,5.8444375 L49.6656875,6.4824375 Z M49.6656875,7.5329375 L49.361125,7.5329375 L49.361125,5.6395625 C49.5165,5.616875 49.6698125,5.5941875 49.8966875,5.5941875 C50.1813125,5.5941875 50.369,5.65675 50.4810625,5.737875 C50.5965625,5.819 50.659125,5.9461875 50.659125,6.133875 C50.659125,6.38 50.4879375,6.5291875 50.2865,6.5896875 L50.2865,6.6020625 C50.450125,6.6350625 50.5635625,6.78425 50.6020625,7.066125 C50.6495,7.3583125 50.6941875,7.470375 50.7230625,7.5329375 L50.406125,7.5329375 C50.3635,7.470375 50.3174375,7.291625 50.2803125,7.046875 C50.232875,6.810375 50.1139375,6.7161875 49.8719375,6.7161875 L49.6656875,6.7161875 L49.6656875,7.5329375 Z M49.97575,5.1143125 C49.2325625,5.1143125 48.6248125,5.7536875 48.6248125,6.5484375 C48.6248125,7.35075 49.2325625,7.9839375 49.9846875,7.9839375 C50.7409375,7.9866875 51.3404375,7.35075 51.3404375,6.5525625 C51.3404375,5.7536875 50.7409375,5.1143125 49.9846875,5.1143125 L49.97575,5.1143125 Z M49.9846875,4.852375 C50.9128125,4.852375 51.64775,5.599 51.64775,6.5484375 C51.64775,7.502 50.9128125,8.2479375 49.97575,8.2479375 C49.05175,8.2479375 48.301,7.502 48.301,6.5484375 C48.301,5.599 49.05175,4.852375 49.97575,4.852375 L49.9846875,4.852375 L49.9846875,4.852375 Z" fill="#FFA300"></path>
+					<path d="M287.912625,6.4824375 L288.12575,6.4824375 C288.37325,6.4824375 288.586375,6.3903125 288.586375,6.1579375 C288.586375,5.9943125 288.463313,5.8306875 288.12575,5.8306875 C288.027438,5.8306875 287.960063,5.8361875 287.912625,5.8444375 L287.912625,6.4824375 Z M287.912625,7.5329375 L287.608063,7.5329375 L287.608063,5.6395625 C287.763438,5.616875 287.917438,5.5941875 288.142938,5.5941875 C288.42825,5.5941875 288.614563,5.65675 288.728,5.737875 C288.8435,5.8196875 288.905375,5.9461875 288.905375,6.133875 C288.905375,6.38 288.7335,6.529875 288.533438,6.5896875 L288.533438,6.6020625 C288.697063,6.6350625 288.809813,6.7849375 288.849,7.066125 C288.896438,7.3583125 288.93975,7.470375 288.97,7.5329375 L288.652375,7.5329375 C288.610438,7.470375 288.564375,7.291625 288.526563,7.046875 C288.479813,6.810375 288.360188,6.7161875 288.118188,6.7161875 L287.912625,6.7161875 L287.912625,7.5329375 Z M288.222688,5.1143125 C287.480188,5.1143125 286.87175,5.7536875 286.87175,6.5484375 C286.87175,7.3514375 287.480188,7.9839375 288.231625,7.9839375 C288.9865,7.9866875 289.586688,7.3514375 289.586688,6.5525625 C289.586688,5.7536875 288.9865,5.1143125 288.231625,5.1143125 L288.222688,5.1143125 Z M288.231625,4.852375 C289.15975,4.852375 289.894,5.599 289.894,6.5484375 C289.894,7.502 289.15975,8.2479375 288.222688,8.2479375 C287.298,8.2479375 286.546563,7.502 286.546563,6.5484375 C286.546563,5.599 287.298,4.852375 288.222688,4.852375 L288.231625,4.852375 L288.231625,4.852375 Z" fill="#FE5000"></path>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
+						<span class="screen-reader-only">
+							Direct Relief						</span>
+					</a>
+				</div>
+			</div>
+
+			<div class="header-site__content">
+				<div class="header-site__navigation has-nav-submenus global-header__mobile-menu-target">
+					<h2 id="site-navigation-label" class="screen-reader-only">
+						Site Navigation					</h2>
+					<div class="menu-top-2021-container"><ul id="pages-menu" class="nav--layout-header-primary"><li id="menu-item-65053" class="menu-item menu-item-type-taxonomy menu-item-object-response menu-item-65053"><a href="https://www.directrelief.org/emergency/ukraine-crisis/" id="menu-link-1">Ukraine Relief</a></li>
+<li id="menu-item-64637" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-64637"><a href="https://www.directrelief.org/work/" id="menu-link-2">Work</a>
+<div class='sub-menu'><ul class='sub-menu-container'>
+	<li id="menu-item-64641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64641"><a href="https://www.directrelief.org/work/" id="menu-link-3">What Direct Relief Does</a></li>
+	<li id="menu-item-60859" class="menu-item menu-item-type-post_type menu-item-object-landing-page menu-item-has-children menu-item-60859"><a href="https://www.directrelief.org/emergency/" id="menu-link-4">Disaster Relief</a>
+	<ul>
+		<li id="menu-item-60317" class="menu-item menu-item-type-taxonomy menu-item-object-response menu-item-60317"><a href="https://www.directrelief.org/emergency/california-wildfires/" id="menu-link-5">California Wildfires</a></li>
+		<li id="menu-item-60343" class="menu-item menu-item-type-taxonomy menu-item-object-response menu-item-60343"><a href="https://www.directrelief.org/emergency/coronavirus-outbreak/" id="menu-link-6">Covid-19</a></li>
+		<li id="menu-item-63103" class="menu-item menu-item-type-taxonomy menu-item-object-response menu-item-63103"><a href="https://www.directrelief.org/emergency/earthquakes/" id="menu-link-7">Earthquakes</a></li>
+		<li id="menu-item-60318" class="menu-item menu-item-type-taxonomy menu-item-object-response menu-item-60318"><a href="https://www.directrelief.org/emergency/hurricanes/" id="menu-link-8">Hurricanes</a></li>
+		<li id="menu-item-63102" class="menu-item menu-item-type-taxonomy menu-item-object-response menu-item-63102"><a href="https://www.directrelief.org/emergency/tornado/" id="menu-link-9">Tornadoes</a></li>
+		<li id="menu-item-65663" class="menu-item menu-item-type-taxonomy menu-item-object-response menu-item-65663"><a href="https://www.directrelief.org/emergency/ukraine-crisis/" id="menu-link-10">Ukraine Relief</a></li>
+	</ul>
+</li>
+	<li id="menu-item-60860" class="menu-item menu-item-type-post_type menu-item-object-landing-page menu-item-has-children menu-item-60860"><a href="https://www.directrelief.org/issue/" id="menu-link-11">Issues &#038; Solutions</a>
+	<ul>
+		<li id="menu-item-61668" class="menu-item menu-item-type-taxonomy menu-item-object-issue menu-item-61668"><a href="https://www.directrelief.org/issue/cold-chain/" id="menu-link-12">Cold Chain</a></li>
+		<li id="menu-item-60320" class="menu-item menu-item-type-taxonomy menu-item-object-issue menu-item-60320"><a href="https://www.directrelief.org/issue/health-equity/" id="menu-link-13">Health Equity</a></li>
+		<li id="menu-item-60323" class="menu-item menu-item-type-taxonomy menu-item-object-issue menu-item-60323"><a href="https://www.directrelief.org/issue/opioid-epidemic/" id="menu-link-14">Opioid Epidemic</a></li>
+		<li id="menu-item-60326" class="menu-item menu-item-type-taxonomy menu-item-object-issue menu-item-60326"><a href="https://www.directrelief.org/issue/reproductive-health/" id="menu-link-15">Reproductive Health</a></li>
+		<li id="menu-item-61670" class="menu-item menu-item-type-taxonomy menu-item-object-issue menu-item-61670"><a href="https://www.directrelief.org/issue/resilient-power/" id="menu-link-16">Resilient Power</a></li>
+	</ul>
+</li>
+	<li id="menu-item-60861" class="menu-item menu-item-type-post_type menu-item-object-landing-page menu-item-has-children menu-item-60861"><a href="https://www.directrelief.org/place/" id="menu-link-17">Places</a>
+	<ul>
+		<li id="menu-item-60330" class="menu-item menu-item-type-taxonomy menu-item-object-place current-post-ancestor current-menu-parent current-post-parent menu-item-60330"><a href="https://www.directrelief.org/place/asia/" id="menu-link-18">Asia</a></li>
+		<li id="menu-item-60329" class="menu-item menu-item-type-taxonomy menu-item-object-place menu-item-60329"><a href="https://www.directrelief.org/place/africa/" id="menu-link-19">Africa</a></li>
+		<li id="menu-item-60331" class="menu-item menu-item-type-taxonomy menu-item-object-place menu-item-60331"><a href="https://www.directrelief.org/place/central-america-and-the-caribbean/" id="menu-link-20">Central America and the Caribbean</a></li>
+		<li id="menu-item-64991" class="menu-item menu-item-type-taxonomy menu-item-object-place menu-item-64991"><a href="https://www.directrelief.org/place/europe/" id="menu-link-21">Europe</a></li>
+		<li id="menu-item-64645" class="menu-item menu-item-type-taxonomy menu-item-object-place menu-item-64645"><a href="https://www.directrelief.org/place/mexico/" id="menu-link-22">Mexico</a></li>
+		<li id="menu-item-60332" class="menu-item menu-item-type-taxonomy menu-item-object-place menu-item-60332"><a href="https://www.directrelief.org/place/south-america/" id="menu-link-23">South America</a></li>
+		<li id="menu-item-64644" class="menu-item menu-item-type-taxonomy menu-item-object-place menu-item-64644"><a href="https://www.directrelief.org/place/united-states/" id="menu-link-24">United States &#038; Territories</a></li>
+	</ul>
+</li>
+	<li id="menu-item-60334" class="menu-item menu-item-type-taxonomy menu-item-object-product menu-item-has-children menu-item-60334"><a href="https://www.directrelief.org/product/maps/" id="menu-link-25">Maps</a>
+	<ul>
+		<li id="menu-item-60336" class="menu-item menu-item-type-taxonomy menu-item-object-product menu-item-60336"><a href="https://www.directrelief.org/product/california-wildfire-map/" id="menu-link-26">California Wildfire Map</a></li>
+		<li id="menu-item-60337" class="menu-item menu-item-type-taxonomy menu-item-object-product menu-item-60337"><a href="https://www.directrelief.org/product/global-aid-map/" id="menu-link-27">Global Aid Map</a></li>
+		<li id="menu-item-60338" class="menu-item menu-item-type-taxonomy menu-item-object-issue current-post-ancestor current-menu-parent current-post-parent menu-item-60338"><a href="https://www.directrelief.org/issue/health-mapping/" id="menu-link-28">Health Mapping</a></li>
+		<li id="menu-item-60335" class="menu-item menu-item-type-taxonomy menu-item-object-product menu-item-60335"><a href="https://www.directrelief.org/product/hurricane-prep-map/" id="menu-link-29">Hurricane Prep Map</a></li>
+	</ul>
+</li>
+</ul></div>
+</li>
+<li id="menu-item-60339" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-60339"><a href="/news/" id="menu-link-30">News</a></li>
+<li id="menu-item-60340" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-60340"><a href="https://www.directrelief.org/about/" id="menu-link-31">About</a>
+<div class='sub-menu'><ul class='sub-menu-container'>
+	<li id="menu-item-60864" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-60864"><a href="https://www.directrelief.org/about/" id="menu-link-32">About Direct Relief</a>
+	<ul>
+		<li id="menu-item-64812" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64812"><a href="https://www.directrelief.org/work/" id="menu-link-33">What We Do</a></li>
+		<li id="menu-item-64811" class="menu-item menu-item-type-post_type menu-item-object-landing-page menu-item-64811"><a href="https://www.directrelief.org/place/" id="menu-link-34">Where We Work</a></li>
+	</ul>
+</li>
+	<li id="menu-item-60344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-60344"><a href="https://www.directrelief.org/about/charity-rating/" id="menu-link-35">Charity Ratings &#038; Awards</a>
+	<ul>
+		<li id="menu-item-60345" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-60345"><a href="https://www.directrelief.org/topic/ratings-awards/charity-navigator/" id="menu-link-36">Charity Navigator</a></li>
+	</ul>
+</li>
+	<li id="menu-item-60346" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60346"><a href="https://www.directrelief.org/about/credentials-memberships/" id="menu-link-37">Compliance, Credentials &#038; Licenses</a></li>
+	<li id="menu-item-60347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60347"><a href="https://www.directrelief.org/about/finance/" id="menu-link-38">Finance &#038; Policies</a></li>
+	<li id="menu-item-60348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60348"><a href="https://www.directrelief.org/about/history/" id="menu-link-39">History</a></li>
+	<li id="menu-item-60349" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60349"><a href="https://www.directrelief.org/about/people/" id="menu-link-40">People</a></li>
+	<li id="menu-item-61673" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-61673"><a href="https://www.directrelief.org/contact/" id="menu-link-41">Contact</a>
+	<ul>
+		<li id="menu-item-64638" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64638"><a href="https://www.directrelief.org/media/" id="menu-link-42">Press</a></li>
+	</ul>
+</li>
+</ul></div>
+</li>
+<li id="menu-item-60350" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-60350"><a href="https://www.directrelief.org/get-involved/" id="menu-link-43">Get Involved</a>
+<div class='sub-menu'><ul class='sub-menu-container'>
+	<li id="menu-item-60866" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-60866"><a href="https://www.directrelief.org/get-involved/" id="menu-link-44">Ways to Give</a>
+	<ul>
+		<li id="menu-item-60364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60364"><a href="https://www.directrelief.org/get-involved/gaming/" id="menu-link-45">Direct Relief Gaming</a></li>
+		<li id="menu-item-60354" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60354"><a href="https://www.directrelief.org/get-involved/stock-donation/" id="menu-link-46">Donate Stock or Mutual Funds</a></li>
+		<li id="menu-item-63438" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-63438"><a href="https://www.directrelief.org/get-involved/donate-a-gift-from-your-ira-qualified-charitable-distribution/" id="menu-link-47">Donate from your IRA</a></li>
+		<li id="menu-item-60356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60356"><a href="https://www.directrelief.org/get-involved/donate-crypto/" id="menu-link-48">Donate Cryptocurrency or NFTs</a></li>
+		<li id="menu-item-61671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61671"><a href="https://www.directrelief.org/get-involved/donation-matching/" id="menu-link-49">Employer Matching</a></li>
+		<li id="menu-item-63436" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-63436"><a href="https://www.directrelief.org/get-involved/estate-donation/the-direct-relief-legacy-society/" id="menu-link-50">Legacy Society</a></li>
+		<li id="menu-item-60363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60363"><a href="https://www.directrelief.org/get-involved/fundraise/" id="menu-link-51">Start a Fundraiser</a></li>
+	</ul>
+</li>
+	<li id="menu-item-63437" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-63437"><a href="https://www.directrelief.org/get-involved/" id="menu-link-52">Other Ways to Give</a></li>
+	<li id="menu-item-60862" class="menu-item menu-item-type-post_type menu-item-object-landing-page menu-item-60862"><a href="https://www.directrelief.org/partnership/" id="menu-link-53">Strategic Partnerships</a></li>
+	<li id="menu-item-60351" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-60351"><a href="/contact/" id="menu-link-54">Contact</a>
+	<ul>
+		<li id="menu-item-60352" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60352"><a href="https://www.directrelief.org/apply/" id="menu-link-55">Apply for Assistance</a></li>
+		<li id="menu-item-64639" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64639"><a href="https://www.directrelief.org/media/" id="menu-link-56">Press</a></li>
+	</ul>
+</li>
+	<li id="menu-item-60361" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60361"><a href="https://www.directrelief.org/get-involved/volunteer/" id="menu-link-57">Volunteer</a></li>
+</ul></div>
+</li>
+<li id="menu-item-60365" class="special manual-menu-item-class--mobile-only menu-item menu-item-type-custom menu-item-object-custom menu-item-60365"><a href="/donate" id="menu-link-58">Donate</a></li>
+</ul></div>				</div>
+
+				<a
+					class="button-donate"
+					id="header-button-donate"
+					role="button"
+					href="https://www.directrelief.org/donate">
+					Donate				</a>
+
+				<div class="header-site__search" data-component="siteSearch">
+					<button id="header-search-toggle" class="search-form__trigger" aria-expanded="false">
+						<svg aria-hidden="true" tabindex="-1" width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		<g transform="translate(-1246.000000, -60.000000)" fill-rule="nonzero" fill="#333333">
+			<g transform="translate(16.000000, 41.000000)">
+				<g transform="translate(713.000000, 6.000000)">
+					<path d="M528.435106,23.0628931 L527.712407,23.0628931 L527.456261,22.8158948 C528.352773,21.7730132 528.89251,20.4190966 528.89251,18.946255 C528.89251,15.6620926 526.230417,13 522.946255,13 C519.662093,13 517,15.6620926 517,18.946255 C517,22.2304174 519.662093,24.89251 522.946255,24.89251 C524.419097,24.89251 525.773013,24.352773 526.815895,23.4562607 L527.062893,23.7124071 L527.062893,24.4351058 L531.636935,29 L533,27.6369354 L528.435106,23.0628931 L528.435106,23.0628931 Z M522.946255,23.0628931 C520.668382,23.0628931 518.829617,21.2241281 518.829617,18.946255 C518.829617,16.6683819 520.668382,14.8296169 522.946255,14.8296169 C525.224128,14.8296169 527.062893,16.6683819 527.062893,18.946255 C527.062893,21.2241281 525.224128,23.0628931 522.946255,23.0628931 Z"></path>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
+						<span class="screen-reader-only">
+							Open Search						</span>
+					</button>
+					<div id="header-search-form-container" class="search-form__container" tabindex="-1">
+						<div class="search-form__inner">
+							
+<form role="search" method="get" class="search-form search-form--context-header" action="https://www.directrelief.org/">
+	<input type="search" class="search-form__field" placeholder="Search" value="" name="s" />
+	<button class="search-form__button--submit search-form__button">
+		<svg aria-hidden="true" tabindex="-1" width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		<g transform="translate(-1246.000000, -60.000000)" fill-rule="nonzero" fill="#333333">
+			<g transform="translate(16.000000, 41.000000)">
+				<g transform="translate(713.000000, 6.000000)">
+					<path d="M528.435106,23.0628931 L527.712407,23.0628931 L527.456261,22.8158948 C528.352773,21.7730132 528.89251,20.4190966 528.89251,18.946255 C528.89251,15.6620926 526.230417,13 522.946255,13 C519.662093,13 517,15.6620926 517,18.946255 C517,22.2304174 519.662093,24.89251 522.946255,24.89251 C524.419097,24.89251 525.773013,24.352773 526.815895,23.4562607 L527.062893,23.7124071 L527.062893,24.4351058 L531.636935,29 L533,27.6369354 L528.435106,23.0628931 L528.435106,23.0628931 Z M522.946255,23.0628931 C520.668382,23.0628931 518.829617,21.2241281 518.829617,18.946255 C518.829617,16.6683819 520.668382,14.8296169 522.946255,14.8296169 C525.224128,14.8296169 527.062893,16.6683819 527.062893,18.946255 C527.062893,21.2241281 525.224128,23.0628931 522.946255,23.0628931 Z"></path>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
+	</button>
+</form>
+							<button id="header-search-form-close" class="search-form__button search-form__button--close">
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 42.4 42.4" style="enable-background:new 0 0 42.4 42.4;" xml:space="preserve">
+	<rect class="cls-1" x="-6.8" y="19.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -8.7868 21.2132)" width="56" height="4"></rect>
+	<rect class="cls-1" x="-6.8" y="19.2" transform="matrix(0.7071 0.7071 -0.7071 0.7071 21.2132 -8.7868)" width="56" height="4"></rect>
+</svg>
+								<span class="screen-reader-only">
+									Close Search								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<button class="header-site__mobile-nav-toggle global-header__mobile-menu-controller" aria-expanded="false">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 21.3"><path d="M0,21.3h32v-3.6H0V21.3z M0,12.5h32V8.9H0V12.5z M0,0v3.6h32V0H0z M0,0"/></svg>
+					<span class="screen-reader-only">
+						Toggle Menu					</span>
+				</button>
+
+			</div>
+		</div>
+	</header><!-- #masthead -->
+
+</div><!-- #sticky-header__wrapper -->
+
+	<div id="content" class="site-content">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main">
+				
+
+<article id="post-68080" class="post-68080 post type-post status-publish format-standard has-post-thumbnail hentry category-health partnership-crisisready issue-health-mapping place-asia place-pakistan response-extreme-weather response-flood">
+	<header class="entry-header">
+		<h1 class="entry-title">Catastrophic Floods Devastate Southern Pakistan: CrisisReady Responds With New Data Reports</h1><div class="entry-eyebrow"><h3 class="news-eyebrow-divider"><a href="https://www.directrelief.org/news/">News</a></h3> <h3 class="primary-"><a href="https://www.directrelief.org/partnership/crisisready/" class="primary--link crisisready">CrisisReady</a></h3></div><div class="entry-thumbnail">
+				<figure class="entry-figure"><img width="1280" height="720" src="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522_web.png?resize=1280%2C720&amp;ssl=1" class="attachment-feature-large size-feature-large wp-post-image jetpack-lazy-image" alt="" data-lazy-srcset="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522_web.png?w=1800&amp;ssl=1 1800w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522_web.png?resize=768%2C432&amp;ssl=1 768w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522_web.png?resize=1280%2C720&amp;ssl=1 1280w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522_web.png?resize=150%2C84&amp;ssl=1 150w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522_web.png?resize=1536%2C864&amp;ssl=1 1536w" data-lazy-sizes="(max-width: 1280px) 100vw, 1280px" data-lazy-src="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522_web.png?resize=1280%2C720&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+					<figcaption class="entry-figure-caption">Population movement resulting from Pakistan's flooding is visualized in this map from Crisis Ready.
+					</figcaption>
+				</figure>
+			</div>	<div class="entry-meta">
+		<div class="col1">
+			<span class="byline"> By <span class="author vcard"><a class="url fn n" href="https://www.directrelief.org/author/crisisready/">Crisis Ready</a></span></span> <span class="post-date"><a href="https://www.directrelief.org/2022/09/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/" rel="bookmark"><time class="entry-date published updated" datetime="2022-09-07T14:46:53-07:00">September 7, 2022 2:46 PM</time></a></span>		</div>
+		<div class="col2">
+<span class="wp-block-button is-style-orange-text republish-button"><button id="republish-modal-open" class="republish-modal-open wp-block-button__link">Republish</button></span></div>	</div>
+		</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p><em>Editor&#8217;s Note: An unabridged version of this article was first published by Crisis Ready<a href="https://www.crisisready.io/2022/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/"> here</a>. CrisisReady is a collaboration between Direct Relief and Harvard University School of Public Health.</em></p>
+
+
+
+<p>Heavy rainfall in Southern Pakistan and melting glaciers in the country&#8217;s northern mountains have caused massive floods and flash floods that continue to devastate districts across the region. The floods have killed at least 1,191 people, 399 of whom were children, since the flooding began in mid-June at the beginning of the monsoon season. In addition to this, a reported 3,554 individuals have been injured. The National Disaster Management Authority stated that as of August 29, 2022, more than 33 million people have been impacted and more than 1 million houses have been destroyed.</p>
+
+
+
+<p>The floods have spawned a critical humanitarian crisis as damage and displacement increase across the country. So far, 66 districts have been officially declared &#8220;calamity hit.&#8221; An estimated 50,000 people have been evacuated since rescue efforts began. Pakistan&#8217;s meteorological office has predicted that more flash floods are expected throughout September.</p>
+
+
+
+<p>CrisisReady has published an interactive map that shows population movement patterns driven by the floods between August 13, 2022, and September 5, 2022. Data reflecting population movement originated from selected level 2 administrative units of Pakistan, including Karachi, Larkana, Malakand, Quetta, and Sukkur.</p>
+
+
+
+<p>The red arrows (shown below) on the map show the directional patterns of population movement. The size (width) of the arrows correlates with the volume of individuals displaced from the selected origins. The larger the arrow, the greater number of movement vectors. Transparency of arrows indicates the baseline population traveling between the origin and the destination under the pre-crisis situation.</p>
+
+
+
+<p><em><a href="https://www.arcgis.com/home/webmap/viewer.html?webmap=2efddbabec664458ad8b6a86bbf557ff&amp;extent=62.7843,24.0677,74.9132,30.1558">Explore the dashboard here.</a></em></p>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://www.crisisready.io/2022/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/"><img loading="lazy" src="https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?ssl=1" alt class="wp-image-68084 jetpack-lazy-image" data-recalc-dims="1" data-lazy-srcset="https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=1024%2C728&amp;ssl=1 1024w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=360%2C256&amp;ssl=1 360w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=300%2C213&amp;ssl=1 300w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=768%2C546&amp;ssl=1 768w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=896%2C637&amp;ssl=1 896w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=448%2C318&amp;ssl=1 448w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=889%2C632&amp;ssl=1 889w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=445%2C316&amp;ssl=1 445w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=988%2C702&amp;ssl=1 988w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=760%2C540&amp;ssl=1 760w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=373%2C265&amp;ssl=1 373w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=150%2C107&amp;ssl=1 150w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?w=1096&amp;ssl=1 1096w" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><noscript><img loading="lazy" src="https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?ssl=1" alt="" class="wp-image-68084" srcset="https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=1024%2C728&amp;ssl=1 1024w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=360%2C256&amp;ssl=1 360w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=300%2C213&amp;ssl=1 300w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=768%2C546&amp;ssl=1 768w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=896%2C637&amp;ssl=1 896w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=448%2C318&amp;ssl=1 448w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=889%2C632&amp;ssl=1 889w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=445%2C316&amp;ssl=1 445w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=988%2C702&amp;ssl=1 988w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=760%2C540&amp;ssl=1 760w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=373%2C265&amp;ssl=1 373w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?resize=150%2C107&amp;ssl=1 150w, https://i1.wp.com/www.directrelief.org/wp-content/uploads/2022/09/PK-floods-population-movement-090522.png?w=1096&amp;ssl=1 1096w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /></noscript></a></figure>
+
+
+
+<p>The maps were generated using data provided by Data for Good at Meta. For more information about the disaster population maps provided by Data for Good at Meta. Data on flood extent is gathered using the Visible Infrared Imaging Radiometer Suite (VIIRS), an instrument that collects visible and infrared images and global observations of the land, atmosphere, cryosphere, and oceans.</p>
+	</div><!-- .entry-content -->
+
+	<div class="entry-footer">
+		<div class="post__terms">
+			
+<div class="entry-footer__term-list">
+	<p>
+		Filed Under: 		<span class="term-list">
+			
+<a href="https://www.directrelief.org/place/asia/" rel="tag">
+	Asia</a>, 
+<a href="https://www.directrelief.org/emergency/extreme-weather/" rel="tag">
+	Extreme Weather</a>, 
+<a href="https://www.directrelief.org/emergency/flood/" rel="tag">
+	Flooding</a>, 
+<a href="https://www.directrelief.org/topic/health/" rel="tag">
+	Health</a>, 
+<a href="https://www.directrelief.org/issue/health-mapping/" rel="tag">
+	Health Mapping</a>, 
+<a href="https://www.directrelief.org/place/pakistan/" rel="tag">
+	Pakistan</a>		</span>
+	</p>
+</div>
+		</div>
+		<div class="post__share">
+			
+<div class="entry-footer__share">
+	<h2 class="screen-reader-text">Share this post</h2>
+	<ul class="share__inner">
+		<li class="share__tool share__tool--type-facebook">
+			<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.directrelief.org/2022/09/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.27 14"><title></title><path d="M5.35,0A3.18,3.18,0,0,0,3,.86a3.25,3.25,0,0,0-.87,2.43V5.12H0V7.61H2.15V14H4.72V7.61H6.86l.33-2.49H4.72V3.53A1.39,1.39,0,0,1,5,2.62a1.24,1.24,0,0,1,1-.3H7.27V.1A13.92,13.92,0,0,0,5.35,0Z"/></svg>
+				<span class="label">Share to Facebook</span>
+			</a>
+		</li>
+		<li class="share__tool share__tool--type-twitter">
+			<a target="_blank" href="https://twitter.com/intent/tweet/?text=Catastrophic%20Floods%20Devastate%20Southern%20Pakistan%3A%20CrisisReady%20Responds%20With%20New%20Data%20Reports&#038;url=https://www.directrelief.org/2022/09/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/&#038;via=directrelief">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.19 13.96"><title>Twitter</title><path d="M15.16,2.2A3.42,3.42,0,0,0,16.71.26a6.91,6.91,0,0,1-2.24.85A3.53,3.53,0,0,0,9.41,1a3.4,3.4,0,0,0-1,2.49,3.91,3.91,0,0,0,.09.81A9.82,9.82,0,0,1,4.41,3.25,10,10,0,0,1,1.2.64,3.45,3.45,0,0,0,.72,2.42,3.43,3.43,0,0,0,1.15,4.1,3.52,3.52,0,0,0,2.29,5.36,3.5,3.5,0,0,1,.7,4.91V5A3.4,3.4,0,0,0,1.5,7.2a3.47,3.47,0,0,0,2,1.22,3.65,3.65,0,0,1-.93.12,4.46,4.46,0,0,1-.67-.05,3.53,3.53,0,0,0,3.29,2.44A6.9,6.9,0,0,1,.85,12.43a7.54,7.54,0,0,1-.85,0A9.79,9.79,0,0,0,5.41,14a10.3,10.3,0,0,0,3.52-.59,9,9,0,0,0,2.81-1.59,10.66,10.66,0,0,0,2-2.3A10.23,10.23,0,0,0,15,6.77a10,10,0,0,0,.41-2.83q0-.31,0-.46a7.38,7.38,0,0,0,1.77-1.82A7,7,0,0,1,15.16,2.2Z"/></svg>
+				<span class="label">Share to Twitter</span>
+			</a>
+		</li>
+		<li class="share__tool share__tool--type-linkedin">
+			<a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&#038;url=https://www.directrelief.org/2022/09/catastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports/">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" tabindex="-1" aria-hidden="true"><title>LinkedIn</title><path d="M25.424 15.887v8.447h-4.896v-7.882c0-1.98-.71-3.33-2.48-3.33-1.354 0-2.158.91-2.514 1.802-.13.315-.162.753-.162 1.194v8.216h-4.9s.067-13.35 0-14.73h4.9v2.087c-.01.017-.023.033-.033.05h.032v-.05c.65-1.002 1.812-2.435 4.414-2.435 3.222 0 5.638 2.106 5.638 6.632zM5.348 2.5c-1.676 0-2.772 1.093-2.772 2.54 0 1.42 1.066 2.538 2.717 2.546h.032c1.71 0 2.77-1.132 2.77-2.546C8.056 3.593 7.02 2.5 5.344 2.5h.005zm-2.48 21.834h4.896V9.604H2.867v14.73z" /></svg>
+				<span class="label">Share to LinkedIn</span>
+			</a>
+		</li>
+		<li class="share__tool share__tool--type-email">
+			<a href="mailto:?body=Catastrophic%20Floods%20Devastate%20Southern%20Pakistan%3A%20CrisisReady%20Responds%20With%20New%20Data%20Reports%0A%0Ahttps%3A%2F%2Fwww.directrelief.org%2F2022%2F09%2Fcatastrophic-floods-devastate-southern-pakistan-crisisready-responds-with-new-data-reports%2F">
+				<svg width="16px" height="10px" viewBox="0 0 16 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>Email icon</title>
+	<defs></defs>
+	<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		<g transform="translate(-1232.000000, -323.000000)" fill-rule="nonzero" fill="#FE5000">
+			<g transform="translate(14.000000, 135.000000)">
+				<g transform="translate(1041.000000, 172.000000)">
+					<g transform="translate(177.000000, 16.000000)">
+						<path d="M8.39309804,6.26415686 L15.113098,0.331921569 C15.0679216,0.325333333 15.027451,0.304627451 14.9803922,0.304627451 L1.80392157,0.304627451 C1.7747451,0.304627451 1.75027451,0.318745098 1.72203922,0.321568627 L8.39309804,6.26415686 Z"></path>
+						<path d="M15.9215686,1.24580392 C15.9215686,1.13380392 15.8933333,1.03027451 15.8575686,0.930509804 L11.113098,5.11968627 L15.7973333,9.21756863 C15.8688627,9.08392157 15.9215686,8.93803922 15.9215686,8.77521569 L15.9215686,1.24580392 Z"></path>
+						<path d="M0.936156863,0.882509804 C0.889098039,0.994509804 0.862745098,1.11686275 0.862745098,1.24580392 L0.862745098,8.77521569 C0.862745098,8.91262745 0.895686275,9.04062745 0.948392157,9.15827451 L5.67686275,5.10462745 L0.936156863,0.882509804 Z"></path>
+						<path d="M10.4015686,5.7465098 L8.39121569,7.52156863 L6.3865098,5.73521569 L1.75498039,9.70509804 C1.77098039,9.70698039 1.78603922,9.71639216 1.80392157,9.71639216 L14.9380392,9.71639216 L10.4015686,5.7465098 Z"></path>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
+				<span class="label">Email</span>
+			</a>
+		</li>
+	</ul>
+</div>
+		</div>
+		<div class="post__related-stories">
+			
+<div class="entry-footer__related-stories post-list post-river">
+	<header class="post-list__header">
+		<h2 class="post-list__title">Related Stories</h2>
+	</header>
+	<article data-post-id="post-66577" class="post-66577 post type-post status-publish format-standard has-post-thumbnail hentry category-health partnership-crisisready partnership-google place-california response-california-wildfires response-wildfire">
+	<div class="post__thumbnail">
+		<a href="https://www.directrelief.org/2022/05/new-technology-aids-wildfire-response/">
+			<img width="850" height="478" src="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=850%2C478&amp;ssl=1" class="attachment-feature-medium size-feature-medium wp-post-image jetpack-lazy-image" alt="" loading="lazy" data-lazy-srcset="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?w=1280&amp;ssl=1 1280w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=360%2C203&amp;ssl=1 360w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=1024%2C576&amp;ssl=1 1024w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=300%2C169&amp;ssl=1 300w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=768%2C432&amp;ssl=1 768w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=850%2C478&amp;ssl=1 850w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=400%2C225&amp;ssl=1 400w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=896%2C504&amp;ssl=1 896w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=448%2C252&amp;ssl=1 448w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=948%2C533&amp;ssl=1 948w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=474%2C267&amp;ssl=1 474w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=1248%2C702&amp;ssl=1 1248w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=960%2C540&amp;ssl=1 960w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=472%2C265&amp;ssl=1 472w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=150%2C84&amp;ssl=1 150w" data-lazy-sizes="(max-width: 850px) 100vw, 850px" data-lazy-src="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2020/10/Butte-North-Complex-Fire-e1653609588948.jpg?resize=850%2C478&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />		</a>
+	</div>
+	<div class="post__wrapper--outer">
+		<div class="post__wrapper--inner">
+			<header class="post__header">
+				<h3 class="primary-category eyebrow">
+					<a href="https://www.directrelief.org/emergency/wildfire/" class="primary--link wildfire">Wildfires</a>				</h3>
+				<h2 class="post__title">
+					<a href="https://www.directrelief.org/2022/05/new-technology-aids-wildfire-response/" rel="bookmark">
+						New Technology Aids Wildfire Response					</a>
+				</h2>
+							</header>
+		</div>
+	</div>
+</article>
+<article data-post-id="post-64565" class="post-64565 post type-post status-publish format-standard has-post-thumbnail hentry category-health partnership-crisisready issue-resilient-power issue-social-vulnerability place-new-york place-ohio place-pennsylvania place-tennessee place-texas place-united-states place-west-virginia">
+	<div class="post__thumbnail">
+		<a href="https://www.directrelief.org/2022/02/power-outages-across-u-s-in-winter-storm-areas-increase-risk-for-medically-vulnerable/">
+			<img width="850" height="478" src="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=850%2C478&amp;ssl=1" class="attachment-feature-medium size-feature-medium wp-post-image jetpack-lazy-image" alt="" loading="lazy" data-lazy-srcset="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?w=1800&amp;ssl=1 1800w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=360%2C202&amp;ssl=1 360w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=1024%2C576&amp;ssl=1 1024w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=300%2C169&amp;ssl=1 300w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=768%2C432&amp;ssl=1 768w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=1536%2C864&amp;ssl=1 1536w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=1280%2C720&amp;ssl=1 1280w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=850%2C478&amp;ssl=1 850w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=400%2C225&amp;ssl=1 400w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=896%2C504&amp;ssl=1 896w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=448%2C252&amp;ssl=1 448w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=948%2C533&amp;ssl=1 948w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=474%2C266&amp;ssl=1 474w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=1248%2C702&amp;ssl=1 1248w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=960%2C540&amp;ssl=1 960w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=472%2C265&amp;ssl=1 472w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=150%2C84&amp;ssl=1 150w" data-lazy-sizes="(max-width: 850px) 100vw, 850px" data-lazy-src="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/Overview_DME_power_outage_0204.png?resize=850%2C478&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />		</a>
+	</div>
+	<div class="post__wrapper--outer">
+		<div class="post__wrapper--inner">
+			<header class="post__header">
+				<h3 class="primary-category eyebrow">
+					<a href="https://www.directrelief.org/partnership/crisisready/" class="primary--link crisisready">CrisisReady</a>				</h3>
+				<h2 class="post__title">
+					<a href="https://www.directrelief.org/2022/02/power-outages-across-u-s-in-winter-storm-areas-increase-risk-for-medically-vulnerable/" rel="bookmark">
+						For Medically Vulnerable, Winter Power Outages Across U.S. Increase Risk					</a>
+				</h2>
+							</header>
+		</div>
+	</div>
+</article>
+<article data-post-id="post-64531" class="post-64531 post type-post status-publish format-standard has-post-thumbnail hentry category-health partnership-crisisready issue-resilient-power place-texas">
+	<div class="post__thumbnail">
+		<a href="https://www.directrelief.org/2022/02/winter-storms-interrupt-power-putting-medical-device-users-at-risk/">
+			<img width="850" height="478" src="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=850%2C478&amp;ssl=1" class="attachment-feature-medium size-feature-medium wp-post-image jetpack-lazy-image" alt="" loading="lazy" data-lazy-srcset="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?w=1800&amp;ssl=1 1800w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=360%2C203&amp;ssl=1 360w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=1024%2C576&amp;ssl=1 1024w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=300%2C169&amp;ssl=1 300w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=768%2C432&amp;ssl=1 768w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=1536%2C864&amp;ssl=1 1536w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=1280%2C720&amp;ssl=1 1280w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=850%2C478&amp;ssl=1 850w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=400%2C225&amp;ssl=1 400w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=896%2C504&amp;ssl=1 896w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=448%2C252&amp;ssl=1 448w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=948%2C534&amp;ssl=1 948w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=474%2C267&amp;ssl=1 474w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=1248%2C702&amp;ssl=1 1248w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=960%2C540&amp;ssl=1 960w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=472%2C265&amp;ssl=1 472w, https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=150%2C84&amp;ssl=1 150w" data-lazy-sizes="(max-width: 850px) 100vw, 850px" data-lazy-src="https://i2.wp.com/www.directrelief.org/wp-content/uploads/2022/02/map16_9.jpg?resize=850%2C478&amp;ssl=1&amp;is-pending-load=1" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />		</a>
+	</div>
+	<div class="post__wrapper--outer">
+		<div class="post__wrapper--inner">
+			<header class="post__header">
+				<h3 class="primary-category eyebrow">
+					<a href="https://www.directrelief.org/partnership/crisisready/" class="primary--link crisisready">CrisisReady</a>				</h3>
+				<h2 class="post__title">
+					<a href="https://www.directrelief.org/2022/02/winter-storms-interrupt-power-putting-medical-device-users-at-risk/" rel="bookmark">
+						Winter Storms Interrupt Power, Putting Medical Device Users at Risk					</a>
+				</h2>
+							</header>
+		</div>
+	</div>
+</article>
+</div>
+		</div>
+	</div>
+</article><!-- #post-## -->
+	<div class="entry-content">
+				
+		<div class="inline-donation-module wp-block-cover block-pattern--donation-cta has-background-dim alignfull" style="background-color:#fe5000">
+			<div class="wp-block-cover__inner-container">
+				
+				<div class="wp-container-61 wp-block-columns">
+					
+					<div class="wp-container-59 wp-block-column">
+						
+						<h2>Giving is Good Medicine</h2>
+						
+
+						
+						<p class="is-style-sans-serif">You don&#039;t have to donate. That&#039;s why it&#039;s so extraordinary if you do.</p>
+						
+					</div>
+					
+
+					
+					<div class="wp-container-60 wp-block-column">
+<div class="dr-inline-donation-client" data-theme="light" data-donation-url="https://donate.directrelief.org/give/406660/#!/donation/checkout"></div>
+</div>
+					
+				</div>
+				
+			</div>
+		</div>
+		
+			</div>
+	<div class="global-modules">
+		<div class="dr-gm-the-latest">
+	
+<div class="dr-post-river-client" data-heading="The Latest " data-heading-link="https://www.directrelief.org/news/" data-layout="threeAcross" data-load-more-label="" data-load-more-per-page="" data-number-of-posts="3" data-page="1" data-show-load-more="" data-taxonomy-slug="all" data-term-slug="" data-term-id="0"></div>
+</div>
+	</div>
+	
+<div class="dr-alerts-cta-client alignfull"></div>
+			</main>
+		</div>
+
+			</div><!-- #content -->
+</div><!-- #page -->
+
+
+<footer id="colophon" class="footer-site" role="contentinfo">
+	<div class="footer-site__row footer-site__row--position-top">
+		<div class="footer-site__wrapper">
+			<a href="https://www.directrelief.org/" class="footer-site__logo">
+				<svg aria-hidden="true" tabindex="-1" width="270" height="55" viewBox="0 0 290 55" xmlns="http://www.w3.org/2000/svg">
+  <title>
+    Direct Relief Logo  </title>
+  <g fill="none" fill-rule="evenodd">
+    <path d="M71.463 37.51c0 3.609 2.579 4.03 4.876 4.03 10.124 0 13.45-7.639 13.45-14.624 0-8.765-5.625-15.092-14.67-15.092-1.922 0-2.811.14-3.656.188v25.497zM66.87 15.526c0-4.217-2.204-3.937-4.313-3.984v-1.218c1.83.093 3.702.093 5.53.093 1.97 0 4.64-.093 8.11-.093 12.141 0 18.748 8.108 18.748 16.404 0 4.64-2.718 16.312-19.312 16.312-2.389 0-4.592-.094-6.794-.094-2.11 0-4.173.049-6.282.094v-1.219c2.814-.282 4.172-.376 4.313-3.563V15.527zM101.234 18.307c-1.219 0-2.296-1.125-2.296-2.343 0-1.172 1.123-2.25 2.296-2.25 1.22 0 2.297.983 2.297 2.25 0 1.266-1.032 2.343-2.297 2.343zm-5.016 23.515h.892c1.313 0 2.249 0 2.249-1.547V27.572c0-2.062-.702-2.343-2.436-3.28v-.75c2.2-.657 4.826-1.546 5.013-1.687.329-.188.61-.234.845-.234.234 0 .328.28.328.656v17.998c0 1.547 1.031 1.547 2.345 1.547h.795v1.219c-1.594 0-3.234-.094-4.92-.094-1.688 0-3.375.049-5.11.094v-1.219zM107.885 41.822h1.265c1.312 0 2.25 0 2.25-1.547V27.104c0-1.453-1.734-1.733-2.44-2.11v-.703c3.424-1.452 5.298-2.67 5.721-2.67.28 0 .422.14.422.61v4.216h.092c1.172-1.828 3.14-4.826 6-4.826 1.172 0 2.671.796 2.671 2.483 0 1.267-.89 2.39-2.203 2.39-1.452 0-1.452-1.123-3.092-1.123-.797 0-3.422 1.076-3.422 3.888v11.016c0 1.547.937 1.547 2.25 1.547h2.625v1.219c-2.578-.045-4.547-.094-6.562-.094-1.921 0-3.891.049-5.577.094v-1.219M136.338 28.603c1.172 0 1.313-.609 1.313-1.17 0-2.392-1.452-4.314-4.079-4.314-2.858 0-4.827 2.11-5.388 5.484h8.154zm-8.294 1.5c-.095.422-.095 1.126 0 2.721.28 4.45 3.14 8.108 6.887 8.108 2.579 0 4.594-1.408 6.329-3.14l.656.656c-2.155 2.857-4.828 5.297-8.672 5.297-7.454 0-8.95-7.22-8.95-10.218 0-9.189 6.185-11.906 9.467-11.906 3.797 0 7.874 2.39 7.92 7.359 0 .28 0 .561-.046.842l-.422.282h-13.169zM161.505 38.868c-2.297 2.672-5.436 4.877-9.14 4.877-4.873 0-9.327-4.735-9.327-9.704 0-6.797 4.875-12.42 11.625-12.42 2.39 0 6.327.748 6.327 3.234 0 1.077-.657 2.06-1.782 2.06-1.97 0-1.874-3.796-6.28-3.796-4.03 0-6.14 4.5-6.14 8.062 0 4.83 3.095 9.094 8.203 9.094 2.39 0 3.938-.844 5.718-2.202l.796.795M168.768 37.274c0 3.095 1.689 3.938 2.955 3.938 1.265 0 2.202-.421 3.28-1.36l.702.704c-1.64 1.687-3.702 3.189-6.233 3.189-3 0-4.452-1.596-4.452-4.362V24.854h-3.094v-.75c2.437-1.874 3.89-2.765 6.28-6.561h.562v4.78h6.985v2.532h-6.985v12.42M191.786 11.824c-1.171 0-1.967.14-2.813.281V25.84c.703.14 1.688.235 2.483.235 5.768 0 8.016-3.797 8.016-7.173 0-4.077-2.155-7.077-7.686-7.077zm-2.813 15.748v10.876c0 3.28 1.782 3.327 4.266 3.374v1.219c-2.248 0-4.266-.094-6.327-.094-2.25 0-4.453.049-6.797.094v-1.219c2.344.14 4.266-.469 4.266-3.14V14.918c0-3.28-1.781-3.328-4.266-3.375v-1.218c2.58.046 4.827.093 7.125.093 1.641 0 3.28-.093 6.28-.093 8.86 0 10.828 4.967 10.828 8.295 0 3.985-3 6.936-6.656 8.015 4.265 6.235 6.517 9.985 8.53 12.233 1.5 1.688 2.907 2.954 5.296 2.954v1.219c-1.17 0-2.343-.094-3.514-.094-1.312 0-2.672.049-3.985.094-4.266-4.687-7.404-10.17-10.78-15.469h-4.266z" fill="#FE5000"/>
+    <path d="M221.879 28.603c1.174 0 1.314-.609 1.314-1.17 0-2.392-1.452-4.314-4.079-4.314-2.86 0-4.826 2.11-5.39 5.484h8.155zm-8.295 1.5c-.094.422-.094 1.126 0 2.721.282 4.45 3.139 8.108 6.889 8.108 2.58 0 4.595-1.408 6.33-3.14l.656.656c-2.156 2.857-4.83 5.297-8.672 5.297-7.454 0-8.952-7.22-8.952-10.218 0-9.189 6.186-11.906 9.468-11.906 3.796 0 7.872 2.39 7.92 7.359 0 .28 0 .561-.048.842l-.422.282h-13.169zM228.476 41.822h.89c1.313 0 2.249 0 2.249-1.547V14.168c0-3.048-.702-3.14-2.48-3.656V9.76c1.871-.607 3.84-1.452 4.825-2.013.515-.282.89-.517 1.03-.517.28 0 .376.282.376.656v32.39c0 1.546 1.03 1.546 2.345 1.546h.795v1.219c-1.594 0-3.235-.094-4.921-.094-1.686 0-3.374.049-5.109.094v-1.219M245.438 18.307c-1.219 0-2.296-1.125-2.296-2.343 0-1.172 1.125-2.25 2.296-2.25 1.22 0 2.296.983 2.296 2.25 0 1.266-1.032 2.343-2.297 2.343zm-5.016 23.515h.89c1.314 0 2.25 0 2.25-1.547V27.572c0-2.062-.702-2.343-2.436-3.28v-.75c2.202-.657 4.826-1.546 5.016-1.687.327-.188.61-.234.842-.234.233 0 .328.28.328.656v17.998c0 1.547 1.03 1.547 2.345 1.547h.795v1.219c-1.593 0-3.235-.094-4.92-.094-1.689 0-3.375.049-5.11.094v-1.219zM263.207 28.603c1.17 0 1.312-.609 1.312-1.17 0-2.392-1.453-4.314-4.079-4.314-2.856 0-4.826 2.11-5.388 5.484h8.155zm-8.298 1.5c-.094.422-.094 1.126 0 2.721.28 4.45 3.14 8.108 6.892 8.108 2.576 0 4.593-1.408 6.328-3.14l.655.656c-2.156 2.857-4.829 5.297-8.671 5.297-7.455 0-8.952-7.22-8.952-10.218 0-9.189 6.186-11.906 9.468-11.906 3.796 0 7.875 2.39 7.922 7.359 0 .28 0 .561-.047.842l-.423.282h-13.172zM283.593 22.322v2.533h-5.953v15.842c0 1.125 1.172 1.125 2.203 1.125h2.11v1.219c-2.015-.045-3.984-.094-6-.094-1.921 0-3.89.049-5.813.094v-1.219h1.783c1.734 0 1.967-.796 1.967-1.502V24.856h-3.28v-.798c1.077-.654 3.28-1.358 3.28-2.953 0-3.046.844-7.64 3.75-10.64 2.578-2.671 5.015-3.234 5.673-3.234.796 0 2.109.19 2.109 1.923 0 1.032-.517 1.827-1.643 1.827-1.405 0-1.405-.655-2.998-.655-2.858 0-3.141 3.373-3.141 5.296v6.701h5.953" fill="#FE5000"/>
+    <path fill="#FFA300" d="M4.024 37.471l-.211 14.08 11.682 1.309 8.53.878 5.43-.67 1.245-8.125-.928-7.034-.247-8.618-12.334-3.06-12.189-.206-.3 5.137-.678 6.31"/>
+    <path d="M27.783 25.18l10.146-1.351 7.947-.65 3.65 1.567 1.35 12.98.352 7.118-.84 3.125s-6.01.172-7.137.318c-1.126.15-8.097.583-8.097.583l-5.257.702s-1.991.074-2.321-2.347c-.319-2.423-1.94-6.213-2.416-10.18-.492-4.111 1.495-11.713 1.495-11.713" fill="#FFBE4C"/>
+    <path d="M21.14 27.924l8.816-.06s5.44.08 6.688.207c1.24.132 7.987-.15 7.987-.15s.414.045.724-2.913c.423-4.01.583-4.668 1.446-9.198.227-1.186.502-2.652.848-4.513l-.26-5.511-1.084-1.608-8.554-2.404-7.465-.789L25.31.457l-3.898 13.044.675 7.935-.947 6.488" fill="#FFA300" mask="url(#mask-2)"/>
+    <path d="M0 6.326l2.925-.963 9.208-.045 8.232.872 4.932.524.68 10.143 1.014 4.633.147 6.766-13.097 1.563-9.488 1.058-4.1-1.176S.532 24.749.3 22.936C.01 20.663 0 6.326 0 6.326" fill="#FE5000" mask="url(#mask-2)"/>
+    <path d="M2.303 15.241c2.276-.278 8.44-.577 13.06 1.154 4.621 1.737 8.003 3.627 8.547 4.603.542.985 3.455 4.189 2.86 4.474-.59.284-9.37.532-10.382.867-1.004.338-2.918.151-2.918.151l-5.03-3.36-.596-1.396-.457-1.035-5.084-5.458M47.732 10.073c-6.202.77-13.048 4.762-14.16 5.953-1.115 1.185-2.844 4.011-3.411 4.618-1.11 1.188-2.691 3.694-1.038 3.484 1.657-.203 6.951-1.491 6.951-1.491l6.33-3.092s4.158-1.985 1.5-3.123c-.96-.41 5.061-3.148 5.061-3.148l-1.233-3.201M25.072 16.62s2.82-.035 3.242.851c.42.887.576 2.122.576 2.122l-1.116 1.081s-3.398.42-2.702-4.054" fill="#FFFFFE"/>
+    <path fill="#FFFFFE" d="M20.72 21.894l3.959 3.747 1.456 3.127-.83 3.953-2.292 11.87L22.178 55l3.749-9.989 1.042-11.455.623-3.75 1.88-4.165 6.035-3.329-7.915 2.498-5.62-3.123-1.251.207"/>
+    <path d="M31.245 24.44c.02.074-4.23.71-9.783 3.762-1.203.885-3.027 1.862-3.148 3.774-.2 2.08 2.646 2.233 4.319 2.34 1.944.062 3.973-.142 5.973-.57 1.467-.085 5.27-1.885 3.794-1.81-3.527-1.297-8.168 1.103-10.016 3.998-2.39 3.5 3.829 4.28 5.784 3.056 1.652-1.313-3.158.67-4.175 1.822-1.798 1.254-2.261 2.268-2.595 2.732-.2.036.629-2.856 4.678-5.158.726-.39 2.625-1.692 3.378-.052.226 1.92-2.08 2.233-3.395 2.404-1.527.043-3.33-.07-4.75-1.388-1.558-1.618-.462-4.051.765-5.253 2.507-2.652 6.48-4.766 10.763-3.388l.762.413c.207.405.067-.617.559.966l-.275.595c-.455.61-.972.875-1.452 1.119-.97.452-1.948.742-2.929.959a26.466 26.466 0 01-5.983.618c-1.914-.25-4.303.237-5.99-2.355-.437-3.049 1.99-4.216 3.458-5.263 3.44-1.816 6.926-2.725 10.258-3.322" fill="#FFFFFE"/>
+    <path d="M49.666 6.482h.213c.249 0 .462-.092.462-.324 0-.164-.125-.327-.462-.327-.098 0-.165.005-.213.013v.638zm0 1.05h-.305V5.64c.156-.023.309-.046.536-.046.284 0 .472.063.584.144.116.081.178.208.178.396 0 .246-.171.395-.373.456v.012c.164.033.278.182.316.464.048.292.092.404.121.467h-.317c-.042-.063-.089-.241-.126-.486-.047-.237-.166-.33-.408-.33h-.206v.816zm.31-2.418c-.743 0-1.351.64-1.351 1.434 0 .803.608 1.436 1.36 1.436.756.003 1.355-.633 1.355-1.431 0-.8-.6-1.439-1.355-1.439h-.01zm.009-.262c.928 0 1.663.747 1.663 1.696 0 .954-.735 1.7-1.672 1.7a1.678 1.678 0 01-1.675-1.7c0-.949.75-1.696 1.675-1.696h.009z" fill="#FFA300"/>
+    <path d="M287.913 6.482h.213c.247 0 .46-.092.46-.324 0-.164-.123-.327-.46-.327-.099 0-.166.005-.213.013v.638zm0 1.05h-.305V5.64c.155-.023.31-.046.535-.046.285 0 .472.063.585.144.115.082.177.208.177.396 0 .246-.171.396-.372.456v.012c.164.033.277.183.316.464.047.292.09.404.121.467h-.318c-.042-.063-.088-.241-.125-.486-.047-.237-.167-.33-.409-.33h-.205v.816zm.31-2.418c-.743 0-1.351.64-1.351 1.434 0 .803.608 1.436 1.36 1.436.754.003 1.355-.633 1.355-1.431 0-.8-.6-1.439-1.355-1.439h-.01zm.009-.262c.928 0 1.662.747 1.662 1.696 0 .954-.734 1.7-1.671 1.7a1.68 1.68 0 01-1.676-1.7c0-.949.751-1.696 1.676-1.696h.009z" fill="#FE5000"/>
+  </g>
+</svg>
+			</a>
+			
+<ul class="social-nav social-nav--context-footer">
+	<li class="social__tool social__tool--type-facebook">
+		<a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/directrelief">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.27 14"><title></title><path d="M5.35,0A3.18,3.18,0,0,0,3,.86a3.25,3.25,0,0,0-.87,2.43V5.12H0V7.61H2.15V14H4.72V7.61H6.86l.33-2.49H4.72V3.53A1.39,1.39,0,0,1,5,2.62a1.24,1.24,0,0,1,1-.3H7.27V.1A13.92,13.92,0,0,0,5.35,0Z"/></svg>
+			<span class="label">Facebook</span>
+		</a>
+	</li>
+	<li class="social__tool social__tool--type-twitter">
+		<a target="_blank" rel="noopener noreferrer" href="https://twitter.com/directrelief">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.19 13.96"><title>Twitter</title><path d="M15.16,2.2A3.42,3.42,0,0,0,16.71.26a6.91,6.91,0,0,1-2.24.85A3.53,3.53,0,0,0,9.41,1a3.4,3.4,0,0,0-1,2.49,3.91,3.91,0,0,0,.09.81A9.82,9.82,0,0,1,4.41,3.25,10,10,0,0,1,1.2.64,3.45,3.45,0,0,0,.72,2.42,3.43,3.43,0,0,0,1.15,4.1,3.52,3.52,0,0,0,2.29,5.36,3.5,3.5,0,0,1,.7,4.91V5A3.4,3.4,0,0,0,1.5,7.2a3.47,3.47,0,0,0,2,1.22,3.65,3.65,0,0,1-.93.12,4.46,4.46,0,0,1-.67-.05,3.53,3.53,0,0,0,3.29,2.44A6.9,6.9,0,0,1,.85,12.43a7.54,7.54,0,0,1-.85,0A9.79,9.79,0,0,0,5.41,14a10.3,10.3,0,0,0,3.52-.59,9,9,0,0,0,2.81-1.59,10.66,10.66,0,0,0,2-2.3A10.23,10.23,0,0,0,15,6.77a10,10,0,0,0,.41-2.83q0-.31,0-.46a7.38,7.38,0,0,0,1.77-1.82A7,7,0,0,1,15.16,2.2Z"/></svg>
+			<span class="label">Twitter</span>
+		</a>
+	</li>
+	<li class="social__tool social__tool--type-linkedin">
+		<a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/company/directrelief">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" tabindex="-1" aria-hidden="true"><title>LinkedIn</title><path d="M25.424 15.887v8.447h-4.896v-7.882c0-1.98-.71-3.33-2.48-3.33-1.354 0-2.158.91-2.514 1.802-.13.315-.162.753-.162 1.194v8.216h-4.9s.067-13.35 0-14.73h4.9v2.087c-.01.017-.023.033-.033.05h.032v-.05c.65-1.002 1.812-2.435 4.414-2.435 3.222 0 5.638 2.106 5.638 6.632zM5.348 2.5c-1.676 0-2.772 1.093-2.772 2.54 0 1.42 1.066 2.538 2.717 2.546h.032c1.71 0 2.77-1.132 2.77-2.546C8.056 3.593 7.02 2.5 5.344 2.5h.005zm-2.48 21.834h4.896V9.604H2.867v14.73z" /></svg>
+			<span class="label">LinkedIn</span>
+		</a>
+	</li>
+	<li class="social__tool social__tool--type-instagram">
+		<a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/directrelief">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.83 13.83"><title>Logo: Instagram</title><path d="M8.54,8.54a2.22,2.22,0,0,1-1.63.68,2.3,2.3,0,0,1-2.3-2.3,2.3,2.3,0,0,1,2.3-2.3,2.3,2.3,0,0,1,2.3,2.3A2.22,2.22,0,0,1,8.54,8.54ZM9.42,4.4a3.42,3.42,0,0,0-2.51-1A3.53,3.53,0,0,0,3.37,6.91a3.53,3.53,0,0,0,3.55,3.55,3.53,3.53,0,0,0,3.55-3.55A3.42,3.42,0,0,0,9.42,4.4Zm1.76-1.76a.83.83,0,0,0-1.41.59.83.83,0,1,0,1.41-.59ZM7.6,1.24h.95l.87,0a7.13,7.13,0,0,1,.93.09,3.61,3.61,0,0,1,.64.17A2.36,2.36,0,0,1,12.3,2.84a3.61,3.61,0,0,1,.17.64,7.13,7.13,0,0,1,.09.93q0,.54,0,.87t0,.95q0,.63,0,.69s0,.27,0,.69,0,.73,0,.95,0,.51,0,.87a7.13,7.13,0,0,1-.09.93,3.61,3.61,0,0,1-.17.64A2.36,2.36,0,0,1,11,12.3a3.61,3.61,0,0,1-.64.17,7.13,7.13,0,0,1-.93.09l-.87,0H5.27l-.87,0a7.13,7.13,0,0,1-.93-.09,3.61,3.61,0,0,1-.64-.17A2.36,2.36,0,0,1,1.52,11a3.61,3.61,0,0,1-.17-.64,7.13,7.13,0,0,1-.09-.93q0-.54,0-.87t0-.95q0-.63,0-.69s0-.27,0-.69,0-.73,0-.95,0-.51,0-.87a7.13,7.13,0,0,1,.09-.93,3.61,3.61,0,0,1,.17-.64A2.36,2.36,0,0,1,2.84,1.52a3.61,3.61,0,0,1,.64-.17,7.13,7.13,0,0,1,.93-.09l.87,0H7.6Zm6.18,2.82a4.22,4.22,0,0,0-1.12-2.9A4.22,4.22,0,0,0,9.77,0Q9,0,6.91,0T4.06,0a4.22,4.22,0,0,0-2.9,1.12A4.22,4.22,0,0,0,0,4.06q0,.79,0,2.85T0,9.77a4.22,4.22,0,0,0,1.12,2.9,4.22,4.22,0,0,0,2.9,1.12q.79,0,2.85,0t2.85,0a4.22,4.22,0,0,0,2.9-1.12,4.22,4.22,0,0,0,1.12-2.9q0-.79,0-2.85T13.78,4.06Z"/></svg>
+			<span class="label">Instagram</span>
+		</a>
+	</li>
+	<li class="social__tool social__tool--type-youtube">
+		<a target="_blank" rel="noopener noreferrer" href="https://youtube.com/directrelief">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.17 13.48"><title>Youtube</title><path d="M7.6,3.84l5.18,2.71L7.6,9.22ZM2.88.19,2.7.21l-.25,0L2.2.29a1.49,1.49,0,0,0-.3.09l-.3.14a2.06,2.06,0,0,0-.33.21A2.54,2.54,0,0,0,1,1L.8,1.19a2.72,2.72,0,0,0-.34.66A4.27,4.27,0,0,0,.19,2.91,22.64,22.64,0,0,0,0,6V7.89q0,.44.06,1.21t.13,1.46a4.07,4.07,0,0,0,.28,1.08,3.59,3.59,0,0,0,.31.63l.17.2a2.14,2.14,0,0,0,.6.44,3.29,3.29,0,0,0,.55.22,5.08,5.08,0,0,0,.58.11l.39,0,.52,0,2.14.08q1.63,0,3.84.07,4,0,6.71-.2l.18,0,.25,0,.26,0a1.49,1.49,0,0,0,.3-.09l.3-.13a1.8,1.8,0,0,0,.33-.2,2.54,2.54,0,0,0,.31-.28l.15-.18a2.72,2.72,0,0,0,.34-.66A4.27,4.27,0,0,0,19,10.57a22.64,22.64,0,0,0,.19-3.1V5.58q0-.44-.06-1.21T19,2.91a4.07,4.07,0,0,0-.28-1.08,3.59,3.59,0,0,0-.31-.63L18.21,1A2.54,2.54,0,0,0,17.9.72a2.06,2.06,0,0,0-.33-.21l-.3-.14A1.49,1.49,0,0,0,17,.29l-.25,0-.25,0-.18,0-.78,0Q14.73.1,13.05,0T9.58,0Q5.56,0,2.88.19Z"/></svg>
+			<span class="label">YouTube</span>
+		</a>
+	</li>
+</ul>
+		</div>
+	</div>
+
+	<div class="footer-site__row footer-site__row--position-middle">
+		<div class="footer-site__wrapper">
+			<nav class="footer-site__navigation">
+				<div class="nav nav--layout-footer-1 footer-site__nav-panel"><h6 class="nav__header">About</h6><ul class="nav__items"><li id="menu-item-40344" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40344"><a href="/contact/" id="menu-link-62">Contact</a></li>
+<li id="menu-item-31191" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31191"><a href="https://www.directrelief.org/about/job-opportunities/" id="menu-link-63">Careers</a></li>
+<li id="menu-item-59171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59171"><a href="https://www.directrelief.org/about/" id="menu-link-64">Mission</a></li>
+<li id="menu-item-31485" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31485"><a href="https://directrelief.zendesk.com/hc/en-us" id="menu-link-65">Support &#038; FAQs</a></li>
+</ul></div><div class="nav nav--layout-footer-2 footer-site__nav-panel"><h6 class="nav__header">Financials</h6><ul class="nav__items"><li id="menu-item-31327" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31327"><a href="/about/finance/financial-documents/#annualreports" id="menu-link-66">Annual Reports</a></li>
+<li id="menu-item-31198" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31198"><a href="https://www.directrelief.org/about/finance/donation-policies/" id="menu-link-67">Donation Policies</a></li>
+<li id="menu-item-33430" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33430"><a href="https://www.directrelief.org/about/finance/cash-and-in-kind-contributions/" id="menu-link-68">In-Kind Valuation</a></li>
+<li id="menu-item-59166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59166"><a href="https://www.directrelief.org/about/finance/" id="menu-link-69">Financial Policies</a></li>
+</ul></div><div class="nav nav--layout-footer-3 footer-site__nav-panel"><h6 class="nav__header">Accreditation</h6><ul class="nav__items"><li id="menu-item-33433" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33433"><a href="https://www.directrelief.org/about/charity-rating/" id="menu-link-70">Charity Rating</a></li>
+<li id="menu-item-31202" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31202"><a href="https://www.directrelief.org/about/credentials-memberships/#licenses" id="menu-link-71">501(c)(3) Nonprofit</a></li>
+<li id="menu-item-59169" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-59169"><a href="https://www.directrelief.org/wp-content/uploads/IRS_501c3_Determination_Ltr.pdf" id="menu-link-72">EIN: 95-1831116</a></li>
+<li id="menu-item-45493" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45493"><a href="https://www.directrelief.org/about/credentials-memberships/" id="menu-link-73">Compliance &#038; Licenses</a></li>
+</ul></div><div class="nav nav--layout-footer-4 footer-site__nav-panel"><h6 class="nav__header">Governance</h6><ul class="nav__items"><li id="menu-item-59167" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59167"><a href="https://www.directrelief.org/direct-relief-content-and-republishing-policy/" id="menu-link-74">Content Republishing</a></li>
+<li id="menu-item-59168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59168"><a href="https://www.directrelief.org/about/people/leadership/" id="menu-link-75">Leadership</a></li>
+<li id="menu-item-31934" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-31934"><a href="https://www.directrelief.org/about/privacy-policy/" id="menu-link-76">Privacy Policy</a></li>
+<li id="menu-item-33432" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33432"><a href="https://www.directrelief.org/about/transparency/" id="menu-link-77">Transparency</a></li>
+</ul></div>			</nav>
+		</div>
+	</div>
+
+	<div class="footer-site__row footer-site__row--position-bottom">
+		<div class="footer-site__wrapper">
+			<a href="/contact"><address>6100 Wallace Becknell Road, Santa Barbara, CA 93117</address></a> <a href="tel:+18059644767">805-964-4767</a>
+		</div>
+	</div>
+
+</footer><!-- #colophon -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9D7FJC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<style>.wp-container-59 > .alignleft { float: left; margin-inline-start: 0; margin-inline-end: 2em; }.wp-container-59 > .alignright { float: right; margin-inline-start: 2em; margin-inline-end: 0; }.wp-container-59 > .aligncenter { margin-left: auto !important; margin-right: auto !important; }</style>
+<style>.wp-container-60 > .alignleft { float: left; margin-inline-start: 0; margin-inline-end: 2em; }.wp-container-60 > .alignright { float: right; margin-inline-start: 2em; margin-inline-end: 0; }.wp-container-60 > .aligncenter { margin-left: auto !important; margin-right: auto !important; }</style>
+<style>.wp-container-61 {display: flex;gap: 2em;flex-wrap: nowrap;align-items: center;}.wp-container-61 > * { margin: 0; }</style>
+<script type='text/javascript' src='https://c0.wp.com/p/jetpack/9.8.1/_inc/build/photon/photon.min.js' id='jetpack-photon-js'></script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/dist/vendor/regenerator-runtime.min.js' id='regenerator-runtime-js'></script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/dist/vendor/wp-polyfill.min.js' id='wp-polyfill-js'></script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/dist/vendor/react.min.js' id='react-js'></script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/dist/vendor/react-dom.min.js' id='react-dom-js'></script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/dist/hooks.min.js' id='wp-hooks-js'></script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/dist/i18n.min.js' id='wp-i18n-js'></script>
+<script type='text/javascript' id='wp-i18n-js-after'>
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/dist/vendor/lodash.min.js' id='lodash-js'></script>
+<script type='text/javascript' id='lodash-js-after'>
+window.lodash = _.noConflict();
+</script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/dist/url.min.js' id='wp-url-js'></script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/dist/api-fetch.min.js' id='wp-api-fetch-js'></script>
+<script type='text/javascript' id='wp-api-fetch-js-after'>
+wp.apiFetch.use( wp.apiFetch.createRootURLMiddleware( "https://www.directrelief.org/wp-json/" ) );
+wp.apiFetch.nonceMiddleware = wp.apiFetch.createNonceMiddleware( "e99b0d5567" );
+wp.apiFetch.use( wp.apiFetch.nonceMiddleware );
+wp.apiFetch.use( wp.apiFetch.mediaUploadMiddleware );
+wp.apiFetch.nonceEndpoint = "https://www.directrelief.org/wp-admin/admin-ajax.php?action=rest-nonce";
+</script>
+<script type='text/javascript' src='https://www.directrelief.org/wp-content/mu-plugins/directrelief-2021/build/blockClientPostRiver.bundle.min.js?ver=d7a964397e27daf9a423' id='dr-block-client-post-river-js'></script>
+<script type='text/javascript' src='https://www.directrelief.org/wp-content/mu-plugins/directrelief-2021/build/blockClientAlertsCTA.bundle.min.js?ver=4966499d3049290219a2' id='dr-block-client-alerts-cta-js'></script>
+<script type='text/javascript' src='https://www.directrelief.org/wp-content/mu-plugins/directrelief-2021/build/blockClientInlineDonation.bundle.min.js?ver=5a25e7535704a93e633d' id='dr-block-client-inline-donation-js'></script>
+<script type='text/javascript' src='https://www.directrelief.org/wp-content/themes/directrelief-2021/client/build/js/global.bundle.min.js?ver=b87eeff4df3481007100' id='dr-global-js-js'></script>
+<script type='text/javascript' id='dr-global-js-js-after'>
+var homeUrl = "https:\/\/www.directrelief.org";
+</script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/jquery/ui/core.min.js' id='jquery-ui-core-js'></script>
+<script type='text/javascript' src='https://c0.wp.com/c/6.0.1/wp-includes/js/jquery/ui/datepicker.min.js' id='jquery-ui-datepicker-js'></script>
+<script type='text/javascript' id='jquery-ui-datepicker-js-after'>
+jQuery(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+</script>
+<script type='text/javascript' src='https://www.directrelief.org/wp-content/plugins/jetpack/vendor/automattic/jetpack-lazy-images/src/js/intersectionobserver-polyfill.min.js?ver=1.1.2' id='jetpack-lazy-images-polyfill-intersectionobserver-js'></script>
+<script type='text/javascript' id='jetpack-lazy-images-js-extra'>
+/* <![CDATA[ */
+var jetpackLazyImagesL10n = {"loading_warning":"Images are still loading. Please cancel your print and try again."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.directrelief.org/wp-content/plugins/jetpack/vendor/automattic/jetpack-lazy-images/src/js/lazy-images.min.js?ver=1.1.2' id='jetpack-lazy-images-js'></script>
+<script src='https://stats.wp.com/e-202237.js' defer></script>
+<script>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:9.8.1',blog:'142789926',post:'68080',tz:'-7',srv:'www.directrelief.org'} ]);
+	_stq.push([ 'clickTrackerInit', '142789926', '68080' ]);
+</script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"73112b0ee5","applicationID":"132281307","transactionName":"ZF1VYxBVVxYCVEEKV10XdlQWXVYLTEBHAkhDXUU=","queueTime":0,"applicationTime":600,"atts":"SBpWFVhPRBg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
