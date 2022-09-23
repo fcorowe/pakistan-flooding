@@ -11,37 +11,39 @@ editor_options:
     wrap: sentence
 ---
 
-# Background
+Global warming is increasing the frequency of extreme weather events, natural disasters and large-scale population displacements.
+Pakistan is a current example of such events.
+Since June 2022, Pakistan has suffered destructive flash flooding.
+As of 3 September 2022, a third of the country was estimated to be underwater [@Reuters2022].
+Pakistan has the largest number of glaciers outside polar regions and higher temperatures have led to excess of water from melting ice in the Himalayas.
+Sudden outbursts of melting glacier water, coupled with torrential monsoon rainfall and long-term deforestation, have thus contributed to landslides, floods and the overflowing of the the Indus River which stretches 2,880 km across Pakistan from north to south.
+Since June 2022, 33 million people are estimated to have been affected, over 1,500 killed and over 6,000 injured as a result of damaged or collapsing housing and public infrastructure [@Reuters2022].
+The southern-eastern province of Sindh is the worst affected area [@Reuters2022].
 
-Torrential monsoon rains have triggered the most severe flooding in Pakistan’s recent history. There are echoes of the devastating floods of 2010 - the deadliest in Pakistan's history - which left more than 2,000 people dead.
+The scale of the humanitarian crisis is anticipated to be unprecedented.
+Floodwater have swept away infrastructure, crops, livestock and livelihoods.
+Limited agricultural production is likely to add pressure to the existing cost of living crisis due to post-pandemic supply chain disruptions and ongoing war in Ukraine \[Ref\].
+Additionally, waterborne diseases are expected to start spreading in the coming weeks.
+Dengue cases have already began soaring following record floods in August [@bbc2022].
+Shelter, clean drinking water and food are urgently needed items in Pakistan.
 
-The scale of the humanitarian crisis in Pakistan is unprecedented, with a third of the country under water, UN humanitarians warned on Friday.
-With more than 33 million people impacted, that represents 15 per cent of the total Pakistani population, said Dr. Palitha Mahipala, World Health Organization (WHO) Representative in the country
+Geographically granular data in real time are critical to monitor population displacement and support the provision of humanitarian aid where it is needed.
+Traditional data systems are not regularly updated, costly and characterised by slow data collection and release [@green2021] .
+We use digital footprint data to capture population movements in near-real time.
+Specifically, we use spatially aggregate, privacy-preserving location history data from Facebook users to identify changes in local population (@fig-fig1 during 13 August-7 September 2022 and human mobility patterns (@fig-fig2 (b)) on 15 August the day Pakistan declared a state of emergency.
+Percentage changes in population correspond to the difference between day-specific populations and a baseline period.
+The baseline period covers 45 days going back 12 August.
 
-In the past few weeks, record monsoon rains dumped more than five times the 30-year average for rainfall in some provinces, killing more than 1,200 people and injuring over 6,000 since June. The southern province of Sindh received 466% more rain than average.
+![Title.](../output/static_map2.png){#fig-fig1 height="60%"}
 
-The anticipation list of waterborne diseases - diarrhea, cholera, all the diseases you can imagine - will hit, and quite soon, so we need to be in place to respond to those as well. Pakistan dengue cases soaring after record floods
+![(a) Population density (Source: Global human settlement layer). (b) Human mobility flows 15 August (Source: Facebook Data For Good).](../output/multifigure1.png){#fig-fig2 height="40%"}
 
-Affected people have told our staff on the ground about their traumatic and scarring experiences as rain and floodwaters swept away their possessions in minutes, Homes, roads, railways, crops, livestock and livelihoods have been washed away in the extreme weather event.
-
-Those who could, rushed to safety on higher ground without being able to rescue their belongings. Shelter, clean drinking water and food are among the most urgently needed items in the aftermath of the flood.
-
-Torrential monsoon rainfall has caused the Indus River to overflow, submerging land for tens of kilometers wide, according to recent images from the European Space Agency.
-
-We have a major problem within the region and a particular global challenge in ensuring that the support that is going to be necessary to get agricultural production back up and running in Pakistan, to feed its own people, as well as being the continued source of supply of food for colleagues and brethren next door in Afghanistan. Food prices are already under pressure because of the post-pandemic supply chain disruption and the war in Ukraine, which is a major global supplier of key crops. Raging flood waters have also swept away 700,000 head of livestock and damaged more than 3.6 million acres of crops - wiping out cotton, wheat, vegetable and fruit harvests.
-
-Pakistan, which is already facing political and economic turmoil, has been thrown into the front line of the human-induced climate crisis.
-
-South Asia is one of the world's global climate crisis hotspots
-
-People living in these hotspots are 15 times more likely to die from climate impacts," UN Secretary General António Guterres said earlier this week.
-
-Pakistan is home to more glaciers than anywhere outside the polar areas. Global warming makes the country more vulnerable to sudden outbursts of melting glacier water, according to the Meteorological Department in Islamabad. The floods were caused by record rainfall during the monsoon season and melting glaciers in the mountains. Pakistan also has the largest number of glaciers outside of the polar regions and higher temperatures have led to more water tumbling down from melting ice in the Himalayas. But there are other factors at play here that have contributed to the scale of devastation. These include long-term deforestation and government failures to make adaptive changes since the last major flooding event in 2010.
-
- to support the humanitarian response and secure a speedy recovery from this disaster."
-
-<!--# ![Title.](../output/animated_map2.gif){#fig-fig1 height="60%"} -->
-
-![Title.](../output/flow-map5.png){#fig-fig2 height="50%"}
+@fig-fig1 reveals a persistent pattern of population decline in areas along the Indus River.
+Declines in these areas exceed 20 percent of the Facebook population during the baseline period.
+@fig-fig1 also suggests that people started leaving areas in Sindh from 18 August.
+Northern-eastern areas of the Indus River record less pronounced population changes, while southern areas of Balochistan showed population increases, particularly since 25 August.
+@fig-fig2 (b) reveals central nodes of departure reflecting people moving away from towns and cities along the Indus River, and large numbers moving to Islamabad from neighbouring areas in the north of the country.
+The figures presented here offer an illustrative example of the potential of digital footprint data to support rapid humanitarian responses and ensure the delivery of assistance where it is needed.
+At the same time, I emphasise a need to carefully considered the methodological and ethical challenges relating to biases, representation and privacy of these data as they have not been purposely build for academic research [@rowe2021].
 
 # References

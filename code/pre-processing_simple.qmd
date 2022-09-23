@@ -19,34 +19,55 @@ library(mapdeck)
 # Read and show file names
 
 ```{r}
+rm(list=ls())
 file_list <- fs::dir_ls("../data/movement")
 ```
 
 # Read data into a single data frame, including filename
-```{r}
+
+```{r, warning=FALSE}
 big_df <- file_list %>% 
-  map_df(read_csv, .id = "filename")
+  map_df(read_csv, .id = "filename", 
+        col_types = cols(date_time = col_date(),
+                         ds = col_date() ))
 str(big_df)
 ```
 
+## Check for what dates labels are not similar
+```{r}
+duplicate_dates <- big_df %>% dplyr::filter(!is.na(start_latitude)) %>% 
+ distinct(ds)
+```
+
+
+## Make labels consistent
+```{r}
+try <-big_df %>% 
+  transform(start_lat = ifelse(ds == duplicate_dates$ds, start_latitude, start_lat),
+            start_lon = ifelse(ds == duplicate_dates$ds, start_longitude, start_lon),
+            end_lat = ifelse(ds == duplicate_dates$ds, end_latitude, end_lat),
+            end_lon = ifelse(ds == duplicate_dates$ds, end_longitude, end_lon),
+            clipped_z_score = ifelse(clipped_z_score == duplicate_dates$ds, z_score, clipped_z_score)
+            )
+```
+
+
 Create time variable
+
 ```{r}
 big_df$hour <- lubridate::hour(big_df$date_time)
 ```
 
-
-# Single date 
+# Single date
 
 ## Filter data
+
 ```{r}
- map_df <- big_df %>% dplyr::filter(ds == "2022-08-29") %>% 
-   mutate(stroke = log(n_crisis / 50))  %>% 
-   dplyr::filter(!is.na(n_crisis))
+ map_df <- big_df %>% dplyr::filter(ds == "2022-08-25") %>% 
+   mutate(stroke = log(n_crisis / 10))  %>% 
+   dplyr::filter(!is.na(n_crisis)) %>% 
+  dplyr::filter(start_polygon_name!=end_polygon_name)
 ```
-
-
-
-
 
 ```{r}
 key <- 'pk.eyJ1IjoiZmNvcm93ZSIsImEiOiJja2Jyc2Qxd2QyNngwMndwOTVxa3B2bjBpIn0.vA3y1-WhmI_W3NxCKlILzw' ## put your own token here
@@ -68,6 +89,7 @@ flowmap <- mapdeck( token = key, style = mapdeck_style("outdoors"),
 # plot the interactive map
 flowmap
 ```
+
 # Aggregate
 
 ```{r}
@@ -78,22 +100,39 @@ aux_df <- big_df %>%
                     ) %>% 
   ungroup()
 
-coordinates <- big_df %>% 
-  dplyr::select( c(start_polygon_id, end_polygon_id, start_latitude, start_longitude, end_latitude, end_longitude) )
+# coordinates <- big_df %>% 
+#   dplyr::filter(!is.na(n_baseline)) %>% 
+#   dplyr::select( c(start_polygon_id, end_polygon_id, start_lat, start_lon, end_lat, end_lon) )
 
-aux_df2 <- left_join(aux_df, big_df, by = c("start_polygon_id" = "start_polygon_id", "end_polygon_id" = "end_polygon_id") )
+coordinates <- unique(big_df[, c("start_polygon_id", 
+                         "end_polygon_id", 
+                         "start_lat", 
+                         "start_lon", 
+                         "end_lat", 
+                         "end_lon",
+                        "n_baseline",
+                        "n_crisis",
+                        "n_difference",
+                        "clipped_z_score")]) %>% 
+  dplyr::filter(!is.na(n_baseline))
+
+aux_df2 <- left_join(aux_df, coordinates, 
+                     by = c("start_polygon_id" = "start_polygon_id", 
+                            "end_polygon_id" = "end_polygon_id") 
+                     )
 
 map_df <- distinct(aux_df2, 
-         sum_flows, 
-         .keep_all = TRUE)
-  
+         start_polygon_id, end_polygon_id, 
+         .keep_all = TRUE) %>% 
+  dplyr::filter(!is.na(n_baseline))
+
+glimpse(map_df)
 ```
 
 ```{r}
-
 flowmap <- map_df %>% 
-  mutate(stroke = mean_flows / 40 )  %>% 
-  dplyr::filter(!is.na(mean_flows)) %>% 
+  #dplyr::filter(clipped_z_score >= 2 | clipped_z_score <= -2) %>% 
+  mutate(stroke = mean_flows / 100 )  %>% 
 mapdeck( token = key, style = mapdeck_style("outdoors"),
                 location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
   add_arc(
@@ -106,15 +145,15 @@ mapdeck( token = key, style = mapdeck_style("outdoors"),
 flowmap
 ```
 
-
 # Animated map
+
 # Filter data
+
 ```{r}
 map_df <- big_df %>% #dplyr::filter(ds == "2022-08-29") %>% 
   mutate(stroke = n_crisis / 1000)  %>% 
   dplyr::filter(!is.na(n_crisis))
 ```
-
 
 ```{r}
 animated_flowmap <- mapdeck( token = key, style = mapdeck_style("dark"),
@@ -135,8 +174,3 @@ animated_flowmap <- mapdeck( token = key, style = mapdeck_style("dark"),
 # plot the interactive map
 animated_flowmap
 ```
-
-
-
-
-

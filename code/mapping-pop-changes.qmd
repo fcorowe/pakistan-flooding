@@ -6,9 +6,7 @@ format: html
 editor: visual
 ---
 
-To do:
-- change range for mapping population change
-- create flow map with black arrows and the default mapdeck base map
+To do: - change range for mapping population change - create flow map with black arrows and the default mapdeck base map
 
 ```{r}
 # data wrangling
@@ -172,6 +170,7 @@ disp_win_wgs84 <- st_sfc(st_point(c(58, 23.13)), st_point(c(80, 37.78)),
 
 disp_win_wgs84
 ```
+
 ```{r}
 disp_win_trans <- st_transform(disp_win_wgs84, crs = target_crs)
 disp_win_trans
@@ -180,7 +179,6 @@ disp_win_trans
 ```{r}
 disp_win_coord <- st_coordinates(disp_win_trans)
 ```
-
 
 ```{r}
 pop_df <- pop_df %>% mutate(
@@ -217,10 +215,10 @@ density_layer <- ggplot() +
 last_plot()
 ```
 
-
 ```{r}
 hist(pop_df$Population, breaks = 100)
 ```
+
 ```{r}
 p_df <- shp_df %>% dplyr::filter(!is.na(percent_change)) #%>% 
   #dplyr::filter(ds == "2022-08-26")
@@ -232,6 +230,7 @@ p_df <- st_transform(p_df, crs = target_crs)
 # Static map - Facet
 
 ## Option 1
+
 ```{r}
 
 # population density
@@ -293,6 +292,7 @@ ggsave(plot = p2, filename = '../output/static_map.png',
 ```
 
 ## Option 2
+
 ```{r}
 
 # population percentage change  
@@ -336,6 +336,7 @@ ggsave(plot = p3, filename = '../output/static_map2.png',
 ```
 
 # Animated map
+
 ```{r}
 
 # population density
@@ -404,6 +405,26 @@ anim_save("animated_map2.gif", animation = last_animation(), path = "../output")
 ```
 
 
+# Population density map
 
+```{r}
+# population density
+  
+ggplot() + 
+  geom_sf(data = p_df, color = "grey", size = 0.1, fill = NA) +
+  geom_raster(data = pop_df, aes(x = X, y = Y, fill = Population/1000)) +
+  scale_fill_viridis() +
+  coord_sf(xlim = disp_win_coord[,'X'], ylim = disp_win_coord[,'Y'],
+             datum = target_crs, expand = FALSE) +
+  theme_map2() +
+  theme(legend.position = "bottom",
+        legend.title = element_text(size = 35),
+        text=element_text(size=32),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank()) +
+  labs(fill = "Population density ('000)")
 
+ggsave(plot = last_plot(), filename = '../output/pop_density1.png', 
+       dpi=300, width = 20, height = 16, units='cm')
+```
 

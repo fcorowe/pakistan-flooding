@@ -1,0 +1,300 @@
+library(tidyverse)
+library(fs)
+library(here)
+library(sf)
+library(viridis)
+library(viridisLite)
+library(mapdeck)
+file_list <- fs::dir_ls("../data/movement")
+big_df <- file_list %>%
+map_df(read_csv, .id = "filename")
+str(big_df)
+big_df$hour <- lubridate::hour(big_df$date_time)
+map_df <- big_df %>% dplyr::filter(ds == "2022-08-29") %>%
+mutate(stroke = log(n_crisis / 50))  %>%
+dplyr::filter(!is.na(n_crisis))
+key <- 'pk.eyJ1IjoiZmNvcm93ZSIsImEiOiJja2Jyc2Qxd2QyNngwMndwOTVxa3B2bjBpIn0.vA3y1-WhmI_W3NxCKlILzw' ## put your own token here
+flowmap <- mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+data = map_df,
+layer_id = "arc_layer",
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+#stroke_from = "start_polygon_name",
+#stroke_to = "end_polygon_name",
+stroke_width = "stroke",
+palette = "viridis",
+#legend = list( stroke_from = F, stroke_to = F ),
+)
+# plot the interactive map
+flowmap
+aux_df <- big_df %>%
+group_by(start_polygon_id, end_polygon_id) %>%
+dplyr::summarise( sum_flows = sum(n_difference, na.rm = T),
+mean_flows = mean(n_difference, na.rm = T)
+) %>%
+ungroup()
+coordinates <- big_df %>%
+dplyr::select( c(start_polygon_id, end_polygon_id, start_latitude, start_longitude, end_latitude, end_longitude) )
+aux_df2 <- left_join(aux_df, big_df, by = c("start_polygon_id" = "start_polygon_id", "end_polygon_id" = "end_polygon_id") )
+map_df <- distinct(aux_df2,
+sum_flows,
+.keep_all = TRUE)
+flowmap <- map_df %>%
+mutate(stroke = mean_flows / 40 )  %>%
+dplyr::filter(!is.na(mean_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+flowmap <- map_df %>%
+mutate(stroke = sum_flows / 40 )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+flowmap <- map_df %>%
+mutate(stroke = sum_flows / 100 )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+flowmap <- map_df %>%
+mutate(stroke = sum_flows / 1000 )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+flowmap <- map_df %>%
+mutate(stroke = sum_flows / 2000 )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+flowmap <- map_df %>%
+mutate(stroke = sum_flows / 3000 )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+flowmap <- map_df %>%
+mutate(stroke = log (sum_flows) )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+hist(map_df$sum_flows, breaks = 50)
+glimpse(big_df)
+library(tidyverse)
+library(fs)
+library(here)
+library(sf)
+library(viridis)
+library(viridisLite)
+library(mapdeck)
+file_list <- fs::dir_ls("../data/movement")
+big_df <- file_list %>%
+map_df(read_csv, .id = "filename")
+str(big_df)
+big_df$hour <- lubridate::hour(big_df$date_time)
+map_df <- big_df %>% dplyr::filter(ds == "2022-08-29") %>%
+mutate(stroke = log(n_crisis / 50))  %>%
+dplyr::filter(!is.na(n_crisis))
+key <- 'pk.eyJ1IjoiZmNvcm93ZSIsImEiOiJja2Jyc2Qxd2QyNngwMndwOTVxa3B2bjBpIn0.vA3y1-WhmI_W3NxCKlILzw' ## put your own token here
+flowmap <- mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+data = map_df,
+layer_id = "arc_layer",
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+#stroke_from = "start_polygon_name",
+#stroke_to = "end_polygon_name",
+stroke_width = "stroke",
+palette = "viridis",
+#legend = list( stroke_from = F, stroke_to = F ),
+)
+# plot the interactive map
+flowmap
+glimpse(big_df)
+hist(big_df$z_score)
+hist(big_df$z_score, break = 50)
+hist(big_df$z_score, breaks = 50)
+hist(big_df$clipped_z_score, breaks = 50)
+aux_df <- big_df %>%
+dplyr::filter(clipped_z_score >= 2 | clipped_z_score <= -2)
+View(aux_df)
+aux_df <- big_df %>%
+dplyr::filter(clipped_z_score >= 2 | clipped_z_score <= -2) %>%
+group_by(start_polygon_id, end_polygon_id) %>%
+dplyr::summarise( sum_flows = sum(n_difference, na.rm = T),
+mean_flows = mean(n_difference, na.rm = T)
+) %>%
+ungroup()
+coordinates <- big_df %>%
+dplyr::select( c(start_polygon_id, end_polygon_id, start_latitude, start_longitude, end_latitude, end_longitude) )
+aux_df2 <- left_join(aux_df, big_df, by = c("start_polygon_id" = "start_polygon_id", "end_polygon_id" = "end_polygon_id") )
+map_df <- distinct(aux_df2,
+sum_flows,
+.keep_all = TRUE)
+flowmap <- map_df %>%
+mutate(stroke = sum_flows )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+flowmap <- map_df %>%
+mutate(stroke = sum_flows / 1000 )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+flowmap <- map_df %>%
+mutate(stroke = sum_flows / 100 )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+flowmap <- map_df %>%
+mutate(stroke = sum_flows / 100 )  %>%
+dplyr::filter(!is.na(sum_flows)) %>%
+mapdeck( token = key, style = mapdeck_style("outdoors"),
+location = c(64.3, 29.4), zoom = 20, pitch = 45) %>%
+add_arc(
+origin = c("start_lon", "start_lat"),
+destination = c("end_lon", "end_lat"),
+stroke_width = "stroke"
+)
+# plot the interactive map
+flowmap
+View(flowmap)
+View(map_df)
+View(aux_df2)
+aux_df <- big_df %>%
+dplyr::filter(clipped_z_score >= 2 | clipped_z_score <= -2) %>%
+group_by(start_polygon_id, end_polygon_id) %>%
+dplyr::summarise( sum_flows = sum(n_difference, na.rm = T),
+mean_flows = mean(n_difference, na.rm = T)
+) %>%
+ungroup()
+coordinates <- big_df %>%
+dplyr::select( c(start_polygon_id, end_polygon_id, start_latitude, start_longitude, end_latitude, end_longitude) )
+aux_df2 <- left_join(aux_df, big_df, by = c("start_polygon_id" = "start_polygon_id", "end_polygon_id" = "end_polygon_id") )
+map_df <- distinct(aux_df2,
+sum_flows,
+.keep_all = TRUE)
+rm(aux_df2, map_df)
+aux_df2 <- left_join(aux_df, big_df, by = c("start_polygon_id" = "start_polygon_id", "end_polygon_id" = "end_polygon_id") )
+View(aux_df2)
+aux_df <- big_df %>%
+#dplyr::filter(clipped_z_score >= 2 | clipped_z_score <= -2) %>%
+group_by(start_polygon_id, end_polygon_id) %>%
+dplyr::summarise( sum_flows = sum(n_difference, na.rm = T),
+mean_flows = mean(n_difference, na.rm = T)
+) %>%
+ungroup()
+coordinates <- big_df %>%
+dplyr::select( c(start_polygon_id, end_polygon_id, start_latitude, start_longitude, end_latitude, end_longitude) )
+aux_df2 <- left_join(aux_df, big_df, by = c("start_polygon_id" = "start_polygon_id", "end_polygon_id" = "end_polygon_id") )
+aux_df <- big_df %>%
+#dplyr::filter(clipped_z_score >= 2 | clipped_z_score <= -2) %>%
+group_by(start_polygon_id, end_polygon_id) %>%
+dplyr::summarise( sum_flows = sum(n_difference, na.rm = T),
+mean_flows = mean(n_difference, na.rm = T)
+) %>%
+ungroup()
+View(aux_df)
+coordinates <- big_df %>%
+dplyr::select( c(start_polygon_id, end_polygon_id, start_latitude, start_longitude, end_latitude, end_longitude) )
+View(coordinates)
+aux_df2 <- left_join(aux_df, coordinates, by = c("start_polygon_id" = "start_polygon_id", "end_polygon_id" = "end_polygon_id") )
+View(aux_df)
+aux_df <- big_df %>%
+#dplyr::filter(clipped_z_score >= 2 | clipped_z_score <= -2) %>%
+group_by(start_polygon_id, end_polygon_id) %>%
+dplyr::summarise( sum_flows = sum(n_difference, na.rm = T),
+mean_flows = mean(n_difference, na.rm = T)
+) %>%
+ungroup()
+coordinates <- big_df %>%
+dplyr::select( c(start_polygon_id, end_polygon_id, start_latitude, start_longitude, end_latitude, end_longitude) )
+aux_df2 <- left_join(aux_df, coordinates, by = c("start_polygon_id" = "start_polygon_id", "end_polygon_id" = "end_polygon_id") )
+View(aux_df2)
+aux_df2 <- dplyr::left_join(aux_df,
+coordinates,
+by = c("start_polygon_id" = "start_polygon_id",
+"end_polygon_id" = "end_polygon_id")
+)
+aux_df2 <- dplyr::right_join(aux_df,
+coordinates,
+by = c("start_polygon_id" = "start_polygon_id",
+"end_polygon_id" = "end_polygon_id")
+)
+View(aux_df2)
+rm(aux_df2)
+aux_df2 <- dplyr::left_join(aux_df,
+coordinates,
+by = c("start_polygon_id" = "start_polygon_id",
+"end_polygon_id" = "end_polygon_id")
+)
+View(aux_df2)
