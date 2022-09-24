@@ -1,6 +1,7 @@
 # ignore files
 .Rproj.user
 .Rhistory
+.Rhistory (Francisco’s MacBook Pro's conflicted copy 2022-09-22)
 .RData
 .Ruserdata
 .DS_Store
