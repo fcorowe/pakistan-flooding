@@ -295,10 +295,12 @@ ggsave(plot = p2, filename = '../output/static_map.png',
 
 ```{r}
 
+sp_df <- p_df %>% dplyr::filter( ds > "2022-08-16" & ds < "2022-09-04" )
+
 # population percentage change  
   
 ggplot() + 
-  geom_sf(data = p_df, 
+  geom_sf(data = sp_df, 
        aes(fill = percent_change),
        color = "white", 
           size = 0.1,
@@ -309,11 +311,13 @@ ggplot() +
      mid = "white",
      high = "#e66101", #6e191c
      midpoint = 0,
-     na.value = NA
+     na.value = NA,
+     breaks=c(-20, -10, 0, 10),
+     labels=c("≤-20", -10, 0, 10)
     ) + 
   facet_wrap(~ ds, 
-             ncol = 6) +
-  theme_map() +
+             ncol = 5) +
+  theme_map2() +
   theme(
     legend.position = "bottom",
     # remove all axes
@@ -322,8 +326,8 @@ ggplot() +
     axis.title.x = element_blank(),
     axis.title.y = element_blank(),
     axis.ticks = element_blank(),
-    text=element_text(size=22),
-    legend.text=element_text(size=22)
+    text=element_text(size=34),
+    legend.text=element_text(size=28)
     ) +
   labs(fill = "Percentage change")
   

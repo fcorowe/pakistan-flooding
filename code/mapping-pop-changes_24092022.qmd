@@ -1,0 +1,240 @@
+---
+title: "Mapping flooding data"
+subtitle: "Changes in population"
+author: "Francisco Rowe"
+format: html
+editor: visual
+---
+
+To do: - change range for mapping population change - create flow map with black arrows and the default mapdeck base map
+
+```{r}
+# data wrangling
+library(tidyverse)
+library(fs)
+library(here)
+
+# spatial data wrangling
+library(sf)
+library(mapdeck)
+
+# data visualisation
+library(viridis) 
+library(viridisLite)
+library(ggthemes)
+library(patchwork)
+library(showtext)
+library(gganimate)
+library(gifski)
+library(ggnewscale)
+```
+
+# Set themes
+
+Set font style
+
+```{r}
+rm(list=ls())
+# load font
+font_add_google("Roboto Condensed", "robotocondensed")
+
+# automatically use showtext to render text
+showtext_auto()
+```
+
+Theme for maps
+
+```{r}
+theme_map2 <- function(...) {
+  theme_tufte() +
+  theme(
+    text = element_text(family = "robotocondensed"),
+    # remove all axes
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank()
+    )
+}
+```
+
+Theme for plots
+
+```{r}
+theme_tufte2 <- function(...) {
+  theme_tufte() +
+  theme(
+    text = element_text(family = "robotocondensed")
+    )
+}
+```
+
+# Read and show file names
+
+```{r}
+file_list <- fs::dir_ls("../data/population")
+```
+
+# Read data into a single data frame, including filename
+
+```{r}
+big_df <- file_list %>% 
+  map_df(read_csv, .id = "filename")
+
+#Create time variable
+big_df$hour <- lubridate::hour(big_df$date_time)
+
+#Filter hour 0
+big_df <- big_df %>% dplyr::filter(hour == 0)
+  
+str(big_df)
+```
+
+# Read shapefile
+
+```{r}
+shp <-  st_read("../data/shp/gadm36_PAK.gpkg") %>% 
+  st_simplify(preserveTopology =T,
+              dTolerance = 1000) #simplify boundaries 1km
+
+```
+
+# Spatial join
+
+```{r}
+shp_df <- left_join(shp, big_df, by =  c("GID_2" = "polygon_id"))
+glimpse(shp_df)
+```
+
+```{r}
+hist(shp_df$percent_change,
+     breaks = 50)
+```
+
+```{r}
+shp_df$percent_change[shp_df$percent_change < -20] <- -20
+```
+
+
+# Adding population density
+
+```{r}
+pop_df <- readRDS("../data/density-layer/global-settlement-layer_2020_adjusted.rds")
+```
+
+```{r}
+target_crs <- '+proj=moll'
+
+sdf_trans <- st_transform(shp, crs = target_crs)
+```
+
+```{r}
+disp_win_wgs84 <- st_sfc(st_point(c(58, 23.13)), st_point(c(80, 37.78)),
+                         crs = 4326)
+
+disp_win_wgs84
+```
+
+```{r}
+disp_win_trans <- st_transform(disp_win_wgs84, crs = target_crs)
+disp_win_trans
+```
+
+```{r}
+disp_win_coord <- st_coordinates(disp_win_trans)
+```
+
+```{r}
+pop_df <- pop_df %>% mutate(
+  dplyr::across(starts_with('Population'),
+         ~replace(., . <= 10, NA)
+         )
+  )
+
+```
+
+
+```{r}
+hist(pop_df$Population, breaks = 100)
+```
+
+```{r}
+p_df <- shp_df %>% dplyr::filter(!is.na(percent_change)) #%>% 
+  #dplyr::filter(ds == "2022-08-26")
+
+p_df <- st_transform(p_df, crs = target_crs)
+
+```
+
+# Static map - Facet
+
+## Option 2
+
+```{r}
+
+sp_df <- p_df %>% dplyr::filter( ds > "2022-08-16" & ds < "2022-09-04" )
+
+# population percentage change  
+  
+ggplot() + 
+  geom_sf(data = sp_df, 
+       aes(fill = percent_change),
+       color = "white", 
+          size = 0.1,
+          alpha = 0.9) +
+  #scale_fill_viridis() +
+  scale_fill_gradient2(
+     low = "#5e3c99",  #2f2f5b
+     mid = "white",
+     high = "#e66101", #6e191c
+     midpoint = 0,
+     na.value = NA,
+     breaks=c(-20, -10, 0, 10),
+     labels=c("≤-20", -10, 0, 10)
+    ) + 
+  facet_wrap(~ ds, 
+             ncol = 5) +
+  theme_map2() +
+  theme(
+    legend.position = "bottom",
+    # remove all axes
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    axis.ticks = element_blank(),
+    text=element_text(size=34),
+    legend.text=element_text(size=28)
+    ) +
+  labs(fill = "Percentage change")
+  
+p3 <- last_plot()
+
+# save static map
+ggsave(plot = p3, filename = '../output/static_map2.png', 
+       dpi=300, width = 20, height = 16, units='cm')
+
+```
+
+
+# Population density map
+
+```{r}
+# population density
+  
+ggplot() + 
+  geom_sf(data = p_df, color = "grey", size = 0.1, fill = NA) +
+  geom_raster(data = pop_df, aes(x = X, y = Y, fill = Population/1000)) +
+  scale_fill_viridis() +
+  coord_sf(xlim = disp_win_coord[,'X'], ylim = disp_win_coord[,'Y'],
+             datum = target_crs, expand = FALSE) +
+  theme_map2() +
+  theme(legend.position = "bottom",
+        legend.title = element_text(size = 35),
+        text=element_text(size=32),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank()) +
+  labs(fill = "Population density ('000)")
+
+ggsave(plot = last_plot(), filename = '../output/pop_density1.png', 
+       dpi=300, width = 20, height = 16, units='cm')
+```

@@ -34,7 +34,7 @@ Specifically, we use spatially aggregate, privacy-preserving location history da
 Percentage changes in population correspond to the difference between day-specific populations and a baseline period.
 The baseline period covers 45 days going back 12 August.
 
-![Title.](../output/static_map2.png){#fig-fig1 height="60%"}
+![Percentage population change (Source: Facebook Data For Good).](../output/static_map2.png){#fig-fig1 height="60%"}
 
 ![(a) Population density (Source: Global human settlement layer). (b) Human mobility flows 15 August (Source: Facebook Data For Good).](../output/multifigure1.png){#fig-fig2 height="40%"}
 
