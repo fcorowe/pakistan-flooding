@@ -1,5 +1,5 @@
 ---
-title: "Using Digital Trace Data to Monitor Human Mobility For Supporting Rapid Humanitarian Responses"
+title: "Using Digital Trace Data to Monitor Human Mobility and Support Rapid Humanitarian Responses"
 author: "Francisco Rowe"
 format:
   pdf:
@@ -22,12 +22,12 @@ The southern-eastern province of Sindh is the worst affected area [@Reuters2022]
 
 The scale of the humanitarian crisis is anticipated to be unprecedented.
 Floodwater have swept away infrastructure, crops, livestock and livelihoods.
-Limited agricultural production is likely to add pressure to the existing cost of living crisis due to post-pandemic supply chain disruptions and ongoing war in Ukraine \[Ref\].
+Limited agricultural production is likely to add pressure to the existing cost of living crisis due to post-pandemic supply chain disruptions and ongoing war in Ukraine [@aminetzahetal_2022].
 Additionally, waterborne diseases are expected to start spreading in the coming weeks.
 Dengue cases have already began soaring following record floods in August [@bbc2022].
 Shelter, clean drinking water and food are urgently needed items in Pakistan.
 
-Geographically granular data in real time are critical to monitor population displacement and support the provision of humanitarian aid where it is needed.
+Geographically granular data in real time are critical to monitor population displacement and support the provision of humanitarian aid where it is needed [@rowe2022] .
 Traditional data systems are not regularly updated, costly and characterised by slow data collection and release [@green2021] .
 We use digital footprint data to capture population movements in near-real time.
 Specifically, we use spatially aggregate, privacy-preserving location history data from Facebook users to identify changes in local population (@fig-fig1 during 13 August-7 September 2022 and human mobility patterns (@fig-fig2 (b)) on 15 August the day Pakistan declared a state of emergency.
