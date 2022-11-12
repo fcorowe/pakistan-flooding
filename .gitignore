@@ -10,3 +10,6 @@
 
 #ignore all files in directories
 data/*
+submission/*
+adm/*
+Published/*

@@ -2,7 +2,7 @@
 title: "Using Digital Trace Data to Monitor Human Mobility and Support Rapid Humanitarian Responses"
 author: "Francisco Rowe"
 format:
-  pdf:
+  docx:
     template: template.tex
 editor: visual
 bibliography: refs.bib
@@ -36,7 +36,7 @@ The baseline period covers 45 days going back 12 August.
 
 ![Percentage population change (Source: Facebook Data For Good).](../output/static_map2.png){#fig-fig1 height="60%"}
 
-![(a) Population density (Source: Global human settlement layer). (b) Human mobility flows 15 August (Source: Facebook Data For Good).](../output/multifigure1.png){#fig-fig2 height="40%"}
+![(a) Population density (Source: Global human settlement layer). (b) Human mobility flows 15 August (Source: Facebook Data For Good).](../output/multifigure_nl.png){#fig-fig2 height="40%"}
 
 @fig-fig1 reveals a persistent pattern of population decline in areas along the Indus River.
 Declines in these areas exceed 20 percent of the Facebook population during the baseline period.
