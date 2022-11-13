@@ -4,9 +4,11 @@
 
 <sup>1</sup> *Geographic Data Science Lab, University of Liverpool, Liverpool, United Kingdom*
 
-This repository stores the required code and data to replicate the results of the following article:
+This repository stores the required code to replicate the results of the following article:
 
     Rowe, F., 2022. Using digital footprint data to monitor human mobility and support rapid humanitarian responses. Regional Studies, Regional Science, 9(1), pp.665-668.
+
+The data were obtained from Meta Data for Good initiative. 
 
 ![](./output/animated_map2.gif)
 
