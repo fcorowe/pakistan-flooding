@@ -2,7 +2,7 @@
 title: "Using Digital Trace Data to Monitor Human Mobility and Support Rapid Humanitarian Responses"
 author: "Francisco Rowe"
 format:
-  docx:
+  pdf:
     template: template.tex
 editor: visual
 bibliography: refs.bib
